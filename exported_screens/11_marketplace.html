@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Colony Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcf8ff;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#312f39",
+                        "secondary-fixed": "#ffdbd0",
+                        "surface-variant": "#e5e0ee",
+                        "tertiary-fixed": "#6bff8f",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dcd8e5",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#fe6a34",
+                        "surface-container-low": "#f6f1ff",
+                        "on-tertiary-container": "#8fffa3",
+                        "tertiary-container": "#007834",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fcf8ff",
+                        "on-secondary-container": "#5d1900",
+                        "on-surface-variant": "#464555",
+                        "error": "#ba1a1a",
+                        "outline": "#777586",
+                        "surface-tint": "#5244de",
+                        "on-surface": "#1c1a24",
+                        "primary-container": "#5b4fe8",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#ebe6f4",
+                        "secondary": "#ab3500",
+                        "outline-variant": "#c8c4d8",
+                        "surface-container-highest": "#e5e0ee",
+                        "background": "#fcf8ff",
+                        "inverse-on-surface": "#f3effc",
+                        "on-background": "#1c1a24",
+                        "on-primary-fixed-variant": "#3824c7",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#e3dfff",
+                        "secondary-fixed-dim": "#ffb59d",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "on-tertiary-fixed": "#002109",
+                        "on-primary-container": "#e8e4ff",
+                        "on-secondary-fixed-variant": "#832600",
+                        "inverse-primary": "#c4c0ff",
+                        "primary-fixed-dim": "#c4c0ff",
+                        "surface": "#fcf8ff",
+                        "tertiary": "#005d26",
+                        "primary": "#4231cf",
+                        "on-secondary-fixed": "#390c00",
+                        "surface-container": "#f0ecf9",
+                        "on-primary-fixed": "#120068",
+                        "on-tertiary-fixed-variant": "#005321"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "container-margin": "16px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xs": "4px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- Top AppBar (from JSON) -->
+<header class="bg-surface dark:bg-on-background docked full-width top-0 shadow-sm sticky z-40 transition-all duration-200 active:scale-95 flex justify-between items-center w-full px-container-margin py-sm">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">location_on</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Colony Marketplace ðŸ›’</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-inverse-surface rounded-full p-xs transition-colors cursor-pointer">notifications</span>
+</div>
+</header>
+<main class="px-container-margin mt-md">
+<!-- Search & Filters -->
+<section class="space-y-md">
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full pl-xl py-md bg-surface-container rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md text-on-surface" placeholder="Search for items in your circle..." type="text"/>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-sm overflow-x-auto hide-scrollbar -mx-base px-base pb-xs">
+<button class="px-lg py-sm bg-primary text-on-primary rounded-full font-label-md transition-all whitespace-nowrap shadow-sm">All</button>
+<button class="px-lg py-sm bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full font-label-md transition-all whitespace-nowrap">Furniture</button>
+<button class="px-lg py-sm bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full font-label-md transition-all whitespace-nowrap">Electronics</button>
+<button class="px-lg py-sm bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full font-label-md transition-all whitespace-nowrap">Clothes</button>
+<button class="px-lg py-sm bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full font-label-md transition-all whitespace-nowrap">Books</button>
+<button class="px-lg py-sm bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full font-label-md transition-all whitespace-nowrap">Free Items</button>
+</div>
+</section>
+<!-- Product Grid -->
+<section class="mt-lg grid grid-cols-2 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] border border-outline-variant flex flex-col group active:scale-[0.98] transition-transform">
+<div class="relative aspect-square">
+<div class="w-full h-full bg-cover bg-center" data-alt="A professional product photograph of a modern, ergonomic office chair with grey mesh backrest and sleek black frame. The lighting is soft and studio-quality, emphasizing the clean textures against a minimalist bright background. The aesthetic is modern corporate, matching the Electric Indigo and Energetic Orange color palette." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD6cx468DRyrXbggb9PYdsJp4qvzEjKLpqgAkFYfzFdLxFAyc6klOyn4QCfiY-k3C0dzLn6--wOeT1XpiiI_cEaC-PwypgQyDV-hX8uYuoEsIXUzeEZLK4pdIkWvmG4pQBd24d1ScPxzLaXSL4tpisnrgNC73A0jfDyoVM5SZf4NHiLQnBlOEW1zZHcqXUYulpnQerJKAqtX40NrpTV2-ZtSTe5ou9X1vFUtIabLkT3rZmWXWD9dh9CK_jJFjfnmmoZpWUiUVPqJ07p')"></div>
+<button class="absolute top-sm right-sm bg-white/80 backdrop-blur-md p-xs rounded-full shadow-sm text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-body-md">favorite</span>
+</button>
+<div class="absolute bottom-sm left-sm bg-primary-container/90 backdrop-blur-md px-sm py-xs rounded-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px] text-on-primary-container" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold text-on-primary-container tracking-tight uppercase">Society Only</span>
+</div>
+</div>
+<div class="p-md space-y-xs flex-1 flex flex-col">
+<h3 class="font-label-md text-on-surface line-clamp-1">Ergonomic Office Chair</h3>
+<div class="flex items-baseline gap-xs">
+<span class="text-primary font-bold text-headline-sm">â‚¹2,499</span>
+<span class="text-outline-variant line-through text-[10px]">â‚¹4,500</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="bg-surface-container-high px-xs py-[2px] rounded text-[10px] font-medium text-on-surface-variant">Like New</span>
+</div>
+<div class="mt-auto pt-sm flex items-center gap-xs text-outline text-[11px]">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>3rd Floor, B Wing</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] border border-outline-variant flex flex-col group active:scale-[0.98] transition-transform">
+<div class="relative aspect-square">
+<div class="w-full h-full bg-cover bg-center" data-alt="A high-end air fryer in a clean, minimalist kitchen setting with warm sunlight streaming through. The air fryer has a matte black finish and digital display. The photo captures a community-centric, dependable vibe with high-saturation accents typical of a vibrant modern Indian neighborhood home." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxFd8_yPZYJZePN9CdxmSTA0EgWGIaEBbHHuFeubVYPK3fDh6QnesTnMIaoq8Qw7ZVlQvwzd5JFcRDkbVbwMQ2NWTeCgOmO2ewVZv7WMUdxN6Ak6SkvbDOm9dBJ8Tf-_CBCwhKyInxrFbkDsiFWEn_zUqabVp9jiLiro4exj8iXu7qmiBYjlTzame9zSCry_N9f3lP8od2LuQ5eI1tSE8XwaOwWfN3DpEQ4bfCYa6sLql8XPyIi9tHqM7VkrmlwPM4GY4EGaUOLgpW')"></div>
+<button class="absolute top-sm right-sm bg-white/80 backdrop-blur-md p-xs rounded-full shadow-sm text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-body-md">favorite</span>
+</button>
+<div class="absolute bottom-sm left-sm bg-primary-container/90 backdrop-blur-md px-sm py-xs rounded-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px] text-on-primary-container" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold text-on-primary-container tracking-tight uppercase">Society Only</span>
+</div>
+</div>
+<div class="p-md space-y-xs flex-1 flex flex-col">
+<h3 class="font-label-md text-on-surface line-clamp-1">Phillips Air Fryer</h3>
+<div class="flex items-baseline gap-xs">
+<span class="text-primary font-bold text-headline-sm">â‚¹3,200</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="bg-surface-container-high px-xs py-[2px] rounded text-[10px] font-medium text-on-surface-variant">Used - Good</span>
+</div>
+<div class="mt-auto pt-sm flex items-center gap-xs text-outline text-[11px]">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>5th Floor, A Wing</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] border border-outline-variant flex flex-col group active:scale-[0.98] transition-transform">
+<div class="relative aspect-square">
+<div class="w-full h-full bg-cover bg-center" data-alt="A stack of popular modern novels and textbooks neatly arranged on a wooden table. The lighting is warm and domestic, suggesting a trusted neighborhood exchange. The photo highlights the vibrant yet dependable brand identity with clear focus and vibrant colors." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDSJCJ5CtCxAMFahf_Nw8-kbthswvfBnDfadUSt3QWcq8DFwBYLXPwc-e4Fb9vK0hGT3qAP5UjhfUJEg3OlGd8Wh-NpwEVC2rBurNWRaAa9abKxp5t-A3I04-Skp8ZG3vFBNy7RfIiQU5onngGu1xv-QbjX7bu1rDhXUD7_8DM55jKfQ61jAGF2Tslo4qqoaHGUAZrVy544x1vxUEsEZFgOIxxH6bxWWAY3FYkQXWbAZbyPE-sErOimhuBhjTBq3TYiDTrWvTBvOCw_')"></div>
+<button class="absolute top-sm right-sm bg-white/80 backdrop-blur-md p-xs rounded-full shadow-sm text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-body-md">favorite</span>
+</button>
+<div class="absolute bottom-sm left-sm bg-primary-container/90 backdrop-blur-md px-sm py-xs rounded-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px] text-on-primary-container" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold text-on-primary-container tracking-tight uppercase">Society Only</span>
+</div>
+</div>
+<div class="p-md space-y-xs flex-1 flex flex-col">
+<h3 class="font-label-md text-on-surface line-clamp-1">UPSC Study Materials</h3>
+<div class="flex items-baseline gap-xs">
+<span class="text-secondary font-bold text-headline-sm">â‚¹0</span>
+<span class="text-secondary font-label-md ml-xs italic">Free</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="bg-surface-container-high px-xs py-[2px] rounded text-[10px] font-medium text-on-surface-variant">Fair</span>
+</div>
+<div class="mt-auto pt-sm flex items-center gap-xs text-outline text-[11px]">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>Ground Floor, C Wing</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] border border-outline-variant flex flex-col group active:scale-[0.98] transition-transform">
+<div class="relative aspect-square">
+<div class="w-full h-full bg-cover bg-center" data-alt="A high-quality acoustic guitar leaning against a vibrant, minimal blue wall in a modern living room. The lighting is artistic and dramatic, creating a premium feel. The image represents the bridge between high-speed digital interaction and grounded neighborhood living." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBRMJWq48hC__fwZz8KJmUK1MBXv4ueH0YjQvTLtE6VBOXpLbQAnxFW-S14liPzWk5w5kDh4oQjiAFTZs74DI6eEEwr0X2AaRTP8oRkCfx3tEWBZa5Y5lFB7kAwE079OKYPdMyb-tW_OLl1TETLJteu03qoe3two_LAgyX8DCrn6FPs0hiEHd2keDB8SQ6Dj9vqcXCu2DClPouofbA7PdnuSB53Qjh89lwQnDNLBAMqn_0QEVpwZE7ldMeIu0RzJeRAQm3CRlONCee7')"></div>
+<button class="absolute top-sm right-sm bg-white/80 backdrop-blur-md p-xs rounded-full shadow-sm text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-body-md">favorite</span>
+</button>
+<div class="absolute bottom-sm left-sm bg-primary-container/90 backdrop-blur-md px-sm py-xs rounded-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px] text-on-primary-container" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold text-on-primary-container tracking-tight uppercase">Society Only</span>
+</div>
+</div>
+<div class="p-md space-y-xs flex-1 flex flex-col">
+<h3 class="font-label-md text-on-surface line-clamp-1">Yamaha Acoustic F310</h3>
+<div class="flex items-baseline gap-xs">
+<span class="text-primary font-bold text-headline-sm">â‚¹6,500</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="bg-surface-container-high px-xs py-[2px] rounded text-[10px] font-medium text-on-surface-variant">Mint</span>
+</div>
+<div class="mt-auto pt-sm flex items-center gap-xs text-outline text-[11px]">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>12th Floor, B Wing</span>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] border border-outline-variant flex flex-col group active:scale-[0.98] transition-transform">
+<div class="relative aspect-square">
+<div class="w-full h-full bg-cover bg-center" data-alt="A child's balance bike in bright red, placed in a well-lit foyer of an apartment building. The setting is clean and trustworthy. The photo has a modern corporate aesthetic with minimalist influences, making it look as professional as a marketplace item." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQCgyjEi6lAno4xNsGc0VoRcFi99dY7LLBicfn7JSpGAFhVhyjaWSPPu20YGBfsFUwwo0S4k_M7lowsj492QJHHiaJl4jF15uB-YAK4yKgF-c3kyhf0FTihBGgwaUaPDzGR7GDxc_OKe6bS1Dq80BOM6QyR23iDqvWq7dah4GCc2Uk-6Minm901m2_AczHKX5ms-amudKgxlQFA0PDs_2v3yN3aSnUwTXxJzz2_FjJx2D2AJQei8sRL7D_SD-Udfwkfuy1milKSC5_')"></div>
+<button class="absolute top-sm right-sm bg-white/80 backdrop-blur-md p-xs rounded-full shadow-sm text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-body-md">favorite</span>
+</button>
+<div class="absolute bottom-sm left-sm bg-primary-container/90 backdrop-blur-md px-sm py-xs rounded-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px] text-on-primary-container" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold text-on-primary-container tracking-tight uppercase">Society Only</span>
+</div>
+</div>
+<div class="p-md space-y-xs flex-1 flex flex-col">
+<h3 class="font-label-md text-on-surface line-clamp-1">Kids Balance Bike</h3>
+<div class="flex items-baseline gap-xs">
+<span class="text-primary font-bold text-headline-sm">â‚¹1,100</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="bg-surface-container-high px-xs py-[2px] rounded text-[10px] font-medium text-on-surface-variant">Well Used</span>
+</div>
+<div class="mt-auto pt-sm flex items-center gap-xs text-outline text-[11px]">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>2nd Floor, D Wing</span>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] border border-outline-variant flex flex-col group active:scale-[0.98] transition-transform">
+<div class="relative aspect-square">
+<div class="w-full h-full bg-cover bg-center" data-alt="A minimalist white floor lamp with warm lighting in a cozy living room corner. The image focuses on design clarity and content, using subtle shadows and high-saturation accents of the brand's primary colors to evoke trust and participation." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCtoHHFoNvIo4pAhNTLn_610wrCjh9MVC2egKToH0t5aR9tjDUcKpcSRGTZ07_VdpS_CtxRc3jdHECG--TV1XHK3PADv7LHHMoNyE3LfEBlZ4Ad290xV3oiqQ0Tqeg-b4ZYCNTe8v8icxYaRbFhKRU44zxzSmv8B0mEfvjrh-spZXcmynDMGnL-PtH9swpadg0mpaA59TEHtvXGuQHJZsjg2Ic2bwjLYf-Bp-bTtPms73mmAd0j8jXBSQ2YKNSXvoYu1KXEn3V1lCJi')"></div>
+<button class="absolute top-sm right-sm bg-white/80 backdrop-blur-md p-xs rounded-full shadow-sm text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-body-md">favorite</span>
+</button>
+<div class="absolute bottom-sm left-sm bg-primary-container/90 backdrop-blur-md px-sm py-xs rounded-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px] text-on-primary-container" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold text-on-primary-container tracking-tight uppercase">Society Only</span>
+</div>
+</div>
+<div class="p-md space-y-xs flex-1 flex flex-col">
+<h3 class="font-label-md text-on-surface line-clamp-1">Floor Lamp (IKEA)</h3>
+<div class="flex items-baseline gap-xs">
+<span class="text-primary font-bold text-headline-sm">â‚¹850</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="bg-surface-container-high px-xs py-[2px] rounded text-[10px] font-medium text-on-surface-variant">Like New</span>
+</div>
+<div class="mt-auto pt-sm flex items-center gap-xs text-outline text-[11px]">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>8th Floor, A Wing</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB: Sell Item -->
+<button class="fixed bottom-24 right-container-margin z-40 bg-primary-container text-on-primary-container shadow-lg flex items-center gap-sm px-lg py-md rounded-full font-bold transition-all hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label-md">Sell Item</span>
+</button>
+<!-- Bottom Navigation (from JSON) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe h-16 bg-surface dark:bg-inverse-surface shadow-[0_-4px_12px_0_rgba(0,0,0,0.06)] rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-on-surface-variant transition-transform duration-300 active:scale-90">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-on-surface-variant transition-transform duration-300 active:scale-90">
+<span class="material-symbols-outlined text-[24px]">report_problem</span>
+<span class="font-label-md text-label-md">Issues</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-on-surface-variant transition-transform duration-300 active:scale-90">
+<span class="material-symbols-outlined text-[24px]">add_circle</span>
+<span class="font-label-md text-label-md">Create</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold hover:bg-surface-container-low dark:hover:bg-on-surface-variant transition-transform duration-300 active:scale-90">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label-md text-label-md">Directory</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-on-surface-variant transition-transform duration-300 active:scale-90">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</button>
+</nav>
+<script>
+        // Simple micro-interaction for filter chips
+        const filterButtons = document.querySelectorAll('.hide-scrollbar button');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+                    b.classList.add('bg-surface-container', 'text-on-surface-variant');
+                });
+                btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+                btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+            });
+        });
+
+        // Toggle heart icon
+        const heartButtons = document.querySelectorAll('button span.material-symbols-outlined');
+        heartButtons.forEach(span => {
+            if(span.innerText === 'favorite') {
+                span.parentElement.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isFilled = span.style.fontVariationSettings.includes("'FILL' 1");
+                    span.style.fontVariationSettings = isFilled ? "'FILL' 0" : "'FILL' 1";
+                    span.classList.toggle('text-error', !isFilled);
+                });
+            }
+        });
+    </script>
+</body></html>
+
+

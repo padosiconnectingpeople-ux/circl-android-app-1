@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Create Post | Circl</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#312f39",
+                        "secondary-fixed": "#ffdbd0",
+                        "surface-variant": "#e5e0ee",
+                        "tertiary-fixed": "#6bff8f",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dcd8e5",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#fe6a34",
+                        "surface-container-low": "#f6f1ff",
+                        "on-tertiary-container": "#8fffa3",
+                        "tertiary-container": "#007834",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fcf8ff",
+                        "on-secondary-container": "#5d1900",
+                        "on-surface-variant": "#464555",
+                        "error": "#ba1a1a",
+                        "outline": "#777586",
+                        "surface-tint": "#5244de",
+                        "on-surface": "#1c1a24",
+                        "primary-container": "#5b4fe8",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#ebe6f4",
+                        "secondary": "#ab3500",
+                        "outline-variant": "#c8c4d8",
+                        "surface-container-highest": "#e5e0ee",
+                        "background": "#fcf8ff",
+                        "inverse-on-surface": "#f3effc",
+                        "on-background": "#1c1a24",
+                        "on-primary-fixed-variant": "#3824c7",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#e3dfff",
+                        "secondary-fixed-dim": "#ffb59d",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "on-tertiary-fixed": "#002109",
+                        "on-primary-container": "#e8e4ff",
+                        "on-secondary-fixed-variant": "#832600",
+                        "inverse-primary": "#c4c0ff",
+                        "primary-fixed-dim": "#c4c0ff",
+                        "surface": "#fcf8ff",
+                        "tertiary": "#005d26",
+                        "primary": "#4231cf",
+                        "on-secondary-fixed": "#390c00",
+                        "surface-container": "#f0ecf9",
+                        "on-primary-fixed": "#120068",
+                        "on-tertiary-fixed-variant": "#005321"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "container-margin": "16px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xs": "4px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcf8ff;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md flex justify-between items-center px-container-margin py-md h-16 shadow-sm">
+<div class="flex items-center gap-md">
+<button class="transition-all duration-200 active:scale-95 text-on-surface">
+<span class="material-symbols-outlined text-[28px]">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface">Create Post</h1>
+</div>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-full font-label-md text-label-md shadow-md active:scale-95 transition-all">
+            Post
+        </button>
+</header>
+<main class="mt-16 flex-1 px-container-margin py-lg overflow-y-auto pb-32">
+<!-- Identity & Visibility Selection -->
+<div class="flex items-center justify-between mb-lg">
+<div class="flex items-center gap-md bg-surface-container-low px-md py-sm rounded-xl border border-outline-variant/30">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A profile headshot of a friendly young Indian man with a warm smile, wearing a modern polo shirt. High-end lifestyle photography, soft natural sunlight from a window, shallow depth of field with a clean apartment interior blurred in the background. Vibrant and professional corporate minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkyM7EZS4LaE-x5UYndZlshJ3X9Y5vEsYLITZdyZ9fHGo-UDU2017zqr9QN7qkSEgdAYHs068clefn6K-mxfqlNBe4d_m0BmTn_DAUxcaJ8KQsykrt77il-zWrAn0AnHcsBEOXDCiGO4i9j1r1rkeuhoYHWkEm1EhyshAR0BEchv9sRo9uf4lGSKyPwbUuCC9Xdky8wsvcq1h_Td0fxDH2P8M_Pbc4xHSAXIhWSp8hbdHVCBQapuUgsgS-IF1piVE7WG8K-0tQgXCv"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-xs">
+<span class="font-label-md text-label-md text-on-surface">Post to:</span>
+<button class="flex items-center gap-xs font-bold text-primary">
+                            Society <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-label-md text-on-surface-variant">Anonymous</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Content Area -->
+<div class="bg-white rounded-2xl shadow-sm border border-outline-variant/20 p-md min-h-[300px] flex flex-col">
+<textarea autofocus="" class="w-full flex-1 bg-transparent border-none focus:ring-0 font-body-lg text-body-lg resize-none placeholder:text-outline" placeholder="Kya ho raha hai aapke mohalle mein?"></textarea>
+<!-- Attachment Preview Area (Asymmetric Bento Style) -->
+<div class="hidden grid grid-cols-2 gap-sm mt-md h-48" id="media-preview">
+<!-- Dynamic previews would go here -->
+</div>
+<!-- Action Bar -->
+<div class="mt-auto border-t border-outline-variant/10 pt-md flex flex-wrap gap-md">
+<button class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-primary transition-colors group">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center group-hover:bg-primary-container/20 transition-all">
+<span class="material-symbols-outlined text-primary">image</span>
+</div>
+<span class="font-label-sm text-label-sm">Photo</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-secondary transition-colors group">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center group-hover:bg-secondary-container/20 transition-all">
+<span class="material-symbols-outlined text-secondary">videocam</span>
+</div>
+<span class="font-label-sm text-label-sm">Video</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-tertiary transition-colors group">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center group-hover:bg-tertiary-container/20 transition-all">
+<span class="material-symbols-outlined text-tertiary">poll</span>
+</div>
+<span class="font-label-sm text-label-sm">Poll</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-primary transition-colors group">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center group-hover:bg-primary-container/20 transition-all">
+<span class="material-symbols-outlined text-primary">event</span>
+</div>
+<span class="font-label-sm text-label-sm">Event</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-error transition-colors group">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center group-hover:bg-error-container/20 transition-all">
+<span class="material-symbols-outlined text-error">report_problem</span>
+</div>
+<span class="font-label-sm text-label-sm">Issue</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-secondary transition-colors group">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center group-hover:bg-secondary-container/20 transition-all">
+<span class="material-symbols-outlined text-secondary">sell</span>
+</div>
+<span class="font-label-sm text-label-sm">Sell</span>
+</button>
+</div>
+</div>
+<!-- Category Horizontal Select -->
+<div class="mt-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-sm uppercase tracking-wider px-xs">Select Category</h3>
+<div class="flex overflow-x-auto gap-sm no-scrollbar pb-xs">
+<button class="shrink-0 px-lg py-sm rounded-full bg-error-container/20 text-error border border-error/20 font-label-md text-label-md flex items-center gap-xs active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">emergency</span> Emergency
+                </button>
+<button class="shrink-0 px-lg py-sm rounded-full bg-[#fef3c7] text-[#92400e] border border-[#fde68a] font-label-md text-label-md flex items-center gap-xs active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">bolt</span> Power
+                </button>
+<button class="shrink-0 px-lg py-sm rounded-full bg-surface-container-highest text-on-surface-variant border border-outline-variant font-label-md text-label-md flex items-center gap-xs active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">edit_road</span> Roads
+                </button>
+<button class="shrink-0 px-lg py-sm rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center gap-xs shadow-md active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">celebration</span> Events
+                </button>
+<button class="shrink-0 px-lg py-sm rounded-full bg-secondary-fixed text-on-secondary-fixed-variant border border-secondary/20 font-label-md text-label-md flex items-center gap-xs active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">campaign</span> Notice
+                </button>
+</div>
+</div>
+<!-- Guidance Card -->
+<div class="mt-xl p-md rounded-2xl bg-primary-container/10 border border-primary-container/20 flex gap-md items-start">
+<span class="material-symbols-outlined text-primary text-[32px]">lightbulb</span>
+<div>
+<p class="font-label-md text-label-md text-primary font-bold">Pro Tip</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Keep it concise and relevant to your society. Adding a clear photo increases engagement by 4x!</p>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Inactive shell for Create screen context) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe h-16 bg-surface shadow-[0_-4px_12px_0_rgba(0,0,0,0.06)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-transform duration-300 active:scale-90 px-sm py-xs">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-transform duration-300 active:scale-90 px-sm py-xs">
+<span class="material-symbols-outlined">report_problem</span>
+<span class="font-label-md text-label-md">Issues</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary font-bold transition-transform duration-300 active:scale-90 px-sm py-xs">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-label-md text-label-md">Create</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-transform duration-300 active:scale-90 px-sm py-xs">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-md text-label-md">Directory</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-transform duration-300 active:scale-90 px-sm py-xs">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions for the textarea
+        const textarea = document.querySelector('textarea');
+        textarea.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+
+        // Simple button active states feedback
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(btn => {
+            btn.addEventListener('touchstart', () => {
+                btn.classList.add('scale-95');
+            });
+            btn.addEventListener('touchend', () => {
+                btn.classList.remove('scale-95');
+            });
+        });
+    </script>
+</body></html>
+
+

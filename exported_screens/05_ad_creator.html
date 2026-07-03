@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Advertise in Your Colony - Circl</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#312f39",
+                    "secondary-fixed": "#ffdbd0",
+                    "surface-variant": "#e5e0ee",
+                    "tertiary-fixed": "#6bff8f",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#dcd8e5",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#fe6a34",
+                    "surface-container-low": "#f6f1ff",
+                    "on-tertiary-container": "#8fffa3",
+                    "tertiary-container": "#007834",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#fcf8ff",
+                    "on-secondary-container": "#5d1900",
+                    "on-surface-variant": "#464555",
+                    "error": "#ba1a1a",
+                    "outline": "#777586",
+                    "surface-tint": "#5244de",
+                    "on-surface": "#1c1a24",
+                    "primary-container": "#5b4fe8",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ebe6f4",
+                    "secondary": "#ab3500",
+                    "outline-variant": "#c8c4d8",
+                    "surface-container-highest": "#e5e0ee",
+                    "background": "#fcf8ff",
+                    "inverse-on-surface": "#f3effc",
+                    "on-background": "#1c1a24",
+                    "on-primary-fixed-variant": "#3824c7",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#e3dfff",
+                    "secondary-fixed-dim": "#ffb59d",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "on-tertiary-fixed": "#002109",
+                    "on-primary-container": "#e8e4ff",
+                    "on-secondary-fixed-variant": "#832600",
+                    "inverse-primary": "#c4c0ff",
+                    "primary-fixed-dim": "#c4c0ff",
+                    "surface": "#fcf8ff",
+                    "tertiary": "#005d26",
+                    "primary": "#4231cf",
+                    "on-secondary-fixed": "#390c00",
+                    "surface-container": "#f0ecf9",
+                    "on-primary-fixed": "#120068",
+                    "on-tertiary-fixed-variant": "#005321"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "container-margin": "16px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "gutter": "12px",
+                    "xs": "4px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active { @apply bg-primary text-on-primary; }
+        .step-inactive { @apply bg-surface-container-high text-on-surface-variant; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#F8F9FF] text-on-surface min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="bg-surface sticky top-0 z-50 flex justify-between items-center w-full px-container-margin py-sm shadow-sm">
+<div class="flex items-center gap-md">
+<button class="transition-all duration-200 active:scale-95 text-on-surface">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Advertise in Your Colony</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">help_outline</span>
+</div>
+</header>
+<main class="flex-grow px-container-margin py-lg space-y-xl max-w-md mx-auto w-full">
+<!-- Step Indicator -->
+<section class="flex items-center justify-between px-md relative">
+<div class="absolute top-1/2 left-0 right-0 h-[2px] bg-surface-container-high -translate-y-1/2 z-0"></div>
+<div class="z-10 w-8 h-8 rounded-full flex items-center justify-center font-bold text-label-md step-active transition-all">1</div>
+<div class="z-10 w-8 h-8 rounded-full flex items-center justify-center font-bold text-label-md step-inactive">2</div>
+<div class="z-10 w-8 h-8 rounded-full flex items-center justify-center font-bold text-label-md step-inactive">3</div>
+<div class="z-10 w-8 h-8 rounded-full flex items-center justify-center font-bold text-label-md step-inactive">4</div>
+</section>
+<!-- Media Upload / AI Section -->
+<section class="space-y-md">
+<div class="relative w-full aspect-video border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center bg-surface-container-lowest hover:border-primary transition-colors group cursor-pointer">
+<div class="flex flex-col items-center gap-sm">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">camera_enhance</span>
+<p class="font-label-md text-on-surface-variant">Add Photo or Video</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="h-[1px] flex-grow bg-outline-variant"></div>
+<span class="font-label-sm text-outline uppercase tracking-wider">or</span>
+<div class="h-[1px] flex-grow bg-outline-variant"></div>
+</div>
+<button class="w-full py-md px-lg border-2 border-primary text-primary rounded-xl font-bold flex items-center justify-center gap-sm transition-all active:scale-[0.98] hover:bg-primary-container/10">
+<span class="material-symbols-outlined">psychology</span>
+                Generate with AI
+            </button>
+</section>
+<!-- Inputs Section -->
+<section class="space-y-lg">
+<div class="space-y-xs">
+<label class="font-label-md text-on-surface-variant ml-1">Ad Headline</label>
+<input class="w-full px-md py-lg bg-surface border-0 rounded-xl focus:ring-2 focus:ring-primary shadow-sm text-body-lg placeholder:text-outline-variant" placeholder="e.g. Best Organic Milk Delivery" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-on-surface-variant ml-1">Description</label>
+<textarea class="w-full px-md py-lg bg-surface border-0 rounded-xl focus:ring-2 focus:ring-primary shadow-sm text-body-lg placeholder:text-outline-variant resize-none" placeholder="Describe your product or service..." rows="3"></textarea>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-on-surface-variant ml-1">Primary Action (CTA)</label>
+<div class="relative">
+<select class="w-full px-md py-lg bg-surface border-0 rounded-xl focus:ring-2 focus:ring-primary shadow-sm text-body-lg appearance-none cursor-pointer">
+<option value="call">Call</option>
+<option selected="" value="whatsapp">WhatsApp</option>
+<option value="visit">Visit Website</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Tiered Pricing Preview -->
+<section class="space-y-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Reach &amp; Pricing</h3>
+<div class="bento-grid">
+<!-- Society Tier -->
+<div class="p-md bg-surface border border-outline-variant rounded-xl shadow-sm flex flex-col gap-xs transition-all hover:border-primary hover:shadow-md cursor-pointer group">
+<p class="font-label-sm text-outline-variant uppercase">Society</p>
+<p class="font-headline-sm text-headline-sm">â‚¹99</p>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">groups</span>
+<span class="font-label-md">~500 reach</span>
+</div>
+</div>
+<!-- Colony Tier (Active) -->
+<div class="p-md bg-primary-container text-on-primary-container rounded-xl shadow-lg flex flex-col gap-xs ring-2 ring-primary relative overflow-hidden">
+<div class="absolute -right-2 -top-2 bg-secondary text-on-secondary px-sm py-xs rounded-bl-lg font-label-sm uppercase transform rotate-12">Popular</div>
+<p class="font-label-sm opacity-80 uppercase">Colony</p>
+<p class="font-headline-sm text-headline-sm">â‚¹299</p>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">map</span>
+<span class="font-label-md">~2,500 reach</span>
+</div>
+</div>
+<!-- Neighborhood Tier -->
+<div class="p-md bg-surface border border-outline-variant rounded-xl shadow-sm flex flex-col gap-xs transition-all hover:border-primary hover:shadow-md cursor-pointer col-span-2">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-sm text-outline-variant uppercase">Neighborhood (5km)</p>
+<p class="font-headline-sm text-headline-sm">â‚¹899</p>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant bg-surface-container-high px-sm py-xs rounded-full">
+<span class="material-symbols-outlined text-[16px]">ads_click</span>
+<span class="font-label-md">~10,000+ reach</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="h-16"></div> <!-- Spacer for fixed button -->
+</main>
+<!-- Bottom Action Bar -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface px-container-margin py-md shadow-[0_-4px_12px_0_rgba(0,0,0,0.06)] z-50">
+<button class="w-full py-lg px-xl bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-sm transition-transform duration-300 active:scale-95 shadow-lg">
+            Next: Choose Audience
+            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</footer>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('.bento-grid > div').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove active classes from all
+                document.querySelectorAll('.bento-grid > div').forEach(c => {
+                    c.classList.remove('bg-primary-container', 'text-on-primary-container', 'ring-2', 'ring-primary', 'shadow-lg');
+                    c.classList.add('bg-surface', 'border', 'border-outline-variant', 'shadow-sm');
+                    const pop = c.querySelector('.bg-secondary');
+                    if(pop) pop.classList.add('hidden');
+                });
+                // Add active to current
+                this.classList.remove('bg-surface', 'border', 'border-outline-variant', 'shadow-sm');
+                this.classList.add('bg-primary-container', 'text-on-primary-container', 'ring-2', 'ring-primary', 'shadow-lg');
+                const pop = this.querySelector('.bg-secondary');
+                if(pop) pop.classList.remove('hidden');
+            });
+        });
+
+        // Animation for the dash box on hover
+        const uploadBox = document.querySelector('.border-dashed');
+        uploadBox.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadBox.classList.add('bg-primary-container/10', 'border-primary');
+        });
+        uploadBox.addEventListener('dragleave', () => {
+            uploadBox.classList.remove('bg-primary-container/10', 'border-primary');
+        });
+    </script>
+</body></html>
+
+

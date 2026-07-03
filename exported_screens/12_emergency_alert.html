@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Circl - Emergency Alert</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Shared Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#312f39",
+                    "secondary-fixed": "#ffdbd0",
+                    "surface-variant": "#e5e0ee",
+                    "tertiary-fixed": "#6bff8f",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#dcd8e5",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#fe6a34",
+                    "surface-container-low": "#f6f1ff",
+                    "on-tertiary-container": "#8fffa3",
+                    "tertiary-container": "#007834",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#fcf8ff",
+                    "on-secondary-container": "#5d1900",
+                    "on-surface-variant": "#464555",
+                    "error": "#ba1a1a",
+                    "outline": "#777586",
+                    "surface-tint": "#5244de",
+                    "on-surface": "#1c1a24",
+                    "primary-container": "#5b4fe8",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ebe6f4",
+                    "secondary": "#ab3500",
+                    "outline-variant": "#c8c4d8",
+                    "surface-container-highest": "#e5e0ee",
+                    "background": "#fcf8ff",
+                    "inverse-on-surface": "#f3effc",
+                    "on-background": "#1c1a24",
+                    "on-primary-fixed-variant": "#3824c7",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#e3dfff",
+                    "secondary-fixed-dim": "#ffb59d",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "on-tertiary-fixed": "#002109",
+                    "on-primary-container": "#e8e4ff",
+                    "on-secondary-fixed-variant": "#832600",
+                    "inverse-primary": "#c4c0ff",
+                    "primary-fixed-dim": "#c4c0ff",
+                    "surface": "#fcf8ff",
+                    "tertiary": "#005d26",
+                    "primary": "#4231cf",
+                    "on-secondary-fixed": "#390c00",
+                    "surface-container": "#f0ecf9",
+                    "on-primary-fixed": "#120068",
+                    "on-tertiary-fixed-variant": "#005321",
+                    "emergency-red": "#EF4444"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "container-margin": "16px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "gutter": "12px",
+                    "xs": "4px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #EF4444; /* Emergency Full Red Takeover */
+            color: white;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .emergency-pulse {
+            animation: pulse-bg 1.5s infinite ease-in-out;
+        }
+        @keyframes pulse-bg {
+            0% { background-color: #EF4444; }
+            50% { background-color: #DC2626; }
+            100% { background-color: #EF4444; }
+        }
+        .safe-button-active {
+            box-shadow: 0 0 20px rgba(74, 225, 118, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="emergency-pulse min-h-screen flex flex-col items-center select-none">
+<!-- Emergency Content Wrapper -->
+<main class="flex flex-col w-full max-w-md px-container-margin py-xl relative flex-grow">
+<!-- Header / Logo Placeholder suppression for focus -->
+<div class="flex justify-center mb-md mt-sm">
+<span class="text-[64px] animate-bounce">ðŸš¨</span>
+</div>
+<div class="text-center mb-xl">
+<h1 class="font-display-lg text-display-lg tracking-widest text-white uppercase mb-xs">EMERGENCY ALERT</h1>
+<div class="bg-white/20 backdrop-blur-md rounded-xl py-sm px-md inline-block border border-white/30">
+<p class="font-headline-md text-headline-md text-white">ðŸ”¥ FIRE REPORTED</p>
+</div>
+</div>
+<!-- Details Card -->
+<div class="bg-white text-on-surface rounded-xl p-lg shadow-xl mb-lg space-y-md">
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-emergency-red bg-error-container p-sm rounded-full" data-icon="location_on">location_on</span>
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-wider">Location</p>
+<p class="font-headline-sm text-headline-sm">B Wing, Sunshine Apartments</p>
+</div>
+</div>
+<div class="flex items-start gap-md pt-sm border-t border-outline-variant">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional close-up headshot of a middle-aged Indian man with a kind face and neat hair, wearing a casual polo shirt. The lighting is bright and modern, set against a blurred background of a clean apartment complex. The image has a sharp, high-quality corporate aesthetic with a slight blue tint in the shadows to maintain professional tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpJ_9mbW7wsuyN1DZMtkfazrGOnNip3Qu6F8qUani9K7XAvHUltIrBluyzr9jKESUd4c_tlSCSW7wH3nC1c9A7lsUJv0tRgcmxMXE9aGmJRJY4cdCcIYk0a9dKEG7pfewqXGsbYkI_5ZakLEBmor3AZkTJLiJ0G-PwszF6nqMHPBo8y-ymOMl5MMzIs34P7G3CpsconONuqciLGo5KAGduH1FxNzc3bQ2rPCOH4WhsXNXd8fnL_9-_xyTRuoVS6rfKDi9G9MDFMKT6"/>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-xs">
+<p class="font-label-sm text-on-surface-variant uppercase tracking-wider">Reported By</p>
+<span class="material-symbols-outlined text-primary text-[14px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="font-body-lg text-body-lg font-bold">Raj Sharma (Verified âœ…)</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">"Fire on 3rd floor B wing. Please evacuate immediately using the stairs. Do not use the elevators."</p>
+</div>
+</div>
+</div>
+<!-- Safety Counter -->
+<div class="bg-black/20 backdrop-blur-lg rounded-xl p-md border border-white/20 mb-xl">
+<div class="flex justify-between items-center mb-sm">
+<p class="font-label-md text-white">23 of 67 families marked safe</p>
+<p class="font-label-md text-tertiary-fixed font-bold">34% SAFE</p>
+</div>
+<div class="w-full bg-white/20 rounded-full h-3 overflow-hidden">
+<div class="bg-tertiary-fixed h-full rounded-full transition-all duration-1000 ease-out" style="width: 34%"></div>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full bg-white text-tertiary py-xl rounded-xl font-display-lg text-display-lg flex items-center justify-center gap-md border-[4px] border-tertiary-fixed active:scale-95 transition-transform shadow-2xl mb-xl" id="markSafeBtn">
+            I AM SAFE <span class="material-symbols-outlined font-black" data-icon="check_circle">check_circle</span>
+</button>
+<!-- Emergency Contact Cluster -->
+<div class="grid grid-cols-3 gap-md mb-lg">
+<a class="flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/30 rounded-xl p-md transition-colors active:scale-90" href="tel:101">
+<span class="material-symbols-outlined text-white text-[32px] mb-xs" data-icon="fire_truck">fire_truck</span>
+<span class="font-label-sm text-white">Fire</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/30 rounded-xl p-md transition-colors active:scale-90" href="tel:102">
+<span class="material-symbols-outlined text-white text-[32px] mb-xs" data-icon="medical_services">medical_services</span>
+<span class="font-label-sm text-white">Ambulance</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/30 rounded-xl p-md transition-colors active:scale-90" href="tel:100">
+<span class="material-symbols-outlined text-white text-[32px] mb-xs" data-icon="local_police">local_police</span>
+<span class="font-label-sm text-white">Police</span>
+</a>
+</div>
+</main>
+<!-- Map View Background Overlay (Optional Micro-interaction) -->
+<div class="fixed inset-0 pointer-events-none opacity-10 z-[-1]">
+<div class="w-full h-full bg-cover bg-center grayscale invert" data-alt="A detailed map of a residential building complex in Mumbai with clearly marked B-Wing and fire assembly points. The map style is minimalist, using high-contrast black lines on a red-tinted background, emphasizing emergency routes and safety exits with vibrant glowing markers. The perspective is top-down, clean, and modern." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAhDlgy--eD8Z4NIH7JU9jpCAwCIbvaGv13mee-Zrcv_f-d-MnOyY2dBKyZvy2UPucb6SCmPJklLCaGvtdsKetOJO0WM3ZsxLPGRoLkMXfkVm0nFIxprwa9Pr7n5E4iEy4oZDgiZQIMipg4QikSgkFd8gn2Thj75Un1a0Rho3nn0dIRKEkzrYB_croztEK11rJYAMxgP4GHSK-XOgehOHCNPASzVKoxC0zRyRLOmWlb95mCH7rNukFvpuKryp7fc89opYjroDlVRaBw')"></div>
+</div>
+<!-- Dismiss / Close Trigger (Temporary Departure UI Rule) -->
+<button class="fixed top-container-margin right-container-margin text-white/50 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<script>
+        // Micro-interaction for the "I AM SAFE" button
+        const safeBtn = document.getElementById('markSafeBtn');
+        let isSafe = false;
+
+        safeBtn.addEventListener('click', () => {
+            if (!isSafe) {
+                isSafe = true;
+                safeBtn.innerHTML = 'SUCCESSFULLY MARKED <span class="material-symbols-outlined">verified</span>';
+                safeBtn.classList.remove('bg-white', 'text-tertiary');
+                safeBtn.classList.add('bg-tertiary', 'text-white', 'safe-button-active');
+                
+                // Haptic simulation / Visual feedback
+                const confetti = document.createElement('div');
+                confetti.className = 'fixed inset-0 pointer-events-none flex items-center justify-center';
+                confetti.innerHTML = '<div class="text-white font-bold text-4xl animate-ping">SAFE âœ“</div>';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 1000);
+            }
+        });
+
+        // Flashlight/Haptic simulation cycle for urgency
+        let bright = false;
+        setInterval(() => {
+            document.body.style.boxShadow = bright ? 'inset 0 0 100px rgba(255,255,255,0.1)' : 'none';
+            bright = !bright;
+        }, 800);
+    </script>
+</body></html>
+
+

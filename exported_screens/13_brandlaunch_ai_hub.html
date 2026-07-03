@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>BrandLaunch AI Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcf8ff;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        /* Custom scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e5e0ee;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#312f39",
+                        "secondary-fixed": "#ffdbd0",
+                        "surface-variant": "#e5e0ee",
+                        "tertiary-fixed": "#6bff8f",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dcd8e5",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#fe6a34",
+                        "surface-container-low": "#f6f1ff",
+                        "on-tertiary-container": "#8fffa3",
+                        "tertiary-container": "#007834",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fcf8ff",
+                        "on-secondary-container": "#5d1900",
+                        "on-surface-variant": "#464555",
+                        "error": "#ba1a1a",
+                        "outline": "#777586",
+                        "surface-tint": "#5244de",
+                        "on-surface": "#1c1a24",
+                        "primary-container": "#5b4fe8",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#ebe6f4",
+                        "secondary": "#ab3500",
+                        "outline-variant": "#c8c4d8",
+                        "surface-container-highest": "#e5e0ee",
+                        "background": "#fcf8ff",
+                        "inverse-on-surface": "#f3effc",
+                        "on-background": "#1c1a24",
+                        "on-primary-fixed-variant": "#3824c7",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#e3dfff",
+                        "secondary-fixed-dim": "#ffb59d",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "on-tertiary-fixed": "#002109",
+                        "on-primary-container": "#e8e4ff",
+                        "on-secondary-fixed-variant": "#832600",
+                        "inverse-primary": "#c4c0ff",
+                        "primary-fixed-dim": "#c4c0ff",
+                        "surface": "#fcf8ff",
+                        "tertiary": "#005d26",
+                        "primary": "#4231cf",
+                        "on-secondary-fixed": "#390c00",
+                        "surface-container": "#f0ecf9",
+                        "on-primary-fixed": "#120068",
+                        "on-tertiary-fixed-variant": "#005321"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "container-margin": "16px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xs": "4px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="bg-surface sticky top-0 z-50 shadow-sm flex justify-between items-center w-full px-container-margin py-sm">
+<div class="flex items-center gap-md">
+<button class="transition-all duration-200 active:scale-95 text-on-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Circl</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="transition-all duration-200 active:scale-95 text-on-surface-variant">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="transition-all duration-200 active:scale-95 text-on-surface-variant relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2.5 h-2.5 bg-secondary-container rounded-full border-2 border-surface"></span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-container-margin py-lg mb-20 overflow-y-auto">
+<!-- Hero Section -->
+<section class="mb-xl text-center">
+<h2 class="font-display-lg text-display-lg text-on-surface mb-xs">BrandLaunch AI ðŸ’¼</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Grow your business with AI</p>
+</section>
+<!-- Tool Grid -->
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Card 1: Brand Studio (Indigo) -->
+<div class="bg-primary-container text-on-primary-container p-md rounded-xl shadow-sm flex flex-col justify-between transition-transform duration-200 active:scale-[0.98] group cursor-pointer h-48">
+<div>
+<div class="text-2xl mb-sm">ðŸŽ¨</div>
+<h3 class="font-headline-sm text-headline-sm font-bold mb-xs">Brand Studio</h3>
+<p class="font-label-md text-label-md opacity-80 line-clamp-2">Create professional logos and brand identities instantly.</p>
+</div>
+<div class="flex justify-end">
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Card 2: Profit Calculator (White) -->
+<div class="bg-surface-container-lowest text-on-surface p-md rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between transition-transform duration-200 active:scale-[0.98] group cursor-pointer h-48">
+<div>
+<div class="text-2xl mb-sm">ðŸ’°</div>
+<h3 class="font-headline-sm text-headline-sm font-bold mb-xs">Profit Calc</h3>
+<p class="font-label-md text-label-md text-on-surface-variant line-clamp-2">Analyze margins and projected earnings for products.</p>
+</div>
+<div class="flex justify-end">
+<span class="material-symbols-outlined text-primary transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Card 3: Listing Gen (White) -->
+<div class="bg-surface-container-lowest text-on-surface p-md rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between transition-transform duration-200 active:scale-[0.98] group cursor-pointer h-48">
+<div>
+<div class="text-2xl mb-sm">ðŸ“</div>
+<h3 class="font-headline-sm text-headline-sm font-bold mb-xs">Listing Gen</h3>
+<p class="font-label-md text-label-md text-on-surface-variant line-clamp-2">SEO-optimized product descriptions for marketplaces.</p>
+</div>
+<div class="flex justify-end">
+<span class="material-symbols-outlined text-primary transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Card 4: Ad Crafter (Indigo) -->
+<div class="bg-primary-container text-on-primary-container p-md rounded-xl shadow-sm flex flex-col justify-between transition-transform duration-200 active:scale-[0.98] group cursor-pointer h-48">
+<div>
+<div class="text-2xl mb-sm">ðŸš€</div>
+<h3 class="font-headline-sm text-headline-sm font-bold mb-xs">Ad Crafter</h3>
+<p class="font-label-md text-label-md opacity-80 line-clamp-2">High-converting ad copies for social platforms.</p>
+</div>
+<div class="flex justify-end">
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Card 5: Trend Radar (Indigo) -->
+<div class="bg-primary-container text-on-primary-container p-md rounded-xl shadow-sm flex flex-col justify-between transition-transform duration-200 active:scale-[0.98] group cursor-pointer h-48">
+<div>
+<div class="text-2xl mb-sm">ðŸ“¡</div>
+<h3 class="font-headline-sm text-headline-sm font-bold mb-xs">Trend Radar</h3>
+<p class="font-label-md text-label-md opacity-80 line-clamp-2">Identify trending local needs in your neighborhood.</p>
+</div>
+<div class="flex justify-end">
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Card 6: Chat Assistant (White) -->
+<div class="bg-surface-container-lowest text-on-surface p-md rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between transition-transform duration-200 active:scale-[0.98] group cursor-pointer h-48">
+<div>
+<div class="text-2xl mb-sm">ðŸ¤–</div>
+<h3 class="font-headline-sm text-headline-sm font-bold mb-xs">Arjun AI</h3>
+<p class="font-label-md text-label-md text-on-surface-variant line-clamp-2">Get expert business advice 24/7 on WhatsApp.</p>
+</div>
+<div class="flex justify-end">
+<span class="material-symbols-outlined text-primary transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Card 7: Logo Maker (White) -->
+<div class="bg-surface-container-lowest text-on-surface p-md rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between transition-transform duration-200 active:scale-[0.98] group cursor-pointer h-48">
+<div>
+<div class="text-2xl mb-sm">âœ¨</div>
+<h3 class="font-headline-sm text-headline-sm font-bold mb-xs">Logo Maker</h3>
+<p class="font-label-md text-label-md text-on-surface-variant line-clamp-2">Minimalist vector logos tailored to your niche.</p>
+</div>
+<div class="flex justify-end">
+<span class="material-symbols-outlined text-primary transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Card 8: Market Analysis (Indigo) -->
+<div class="bg-primary-container text-on-primary-container p-md rounded-xl shadow-sm flex flex-col justify-between transition-transform duration-200 active:scale-[0.98] group cursor-pointer h-48">
+<div>
+<div class="text-2xl mb-sm">ðŸ“Š</div>
+<h3 class="font-headline-sm text-headline-sm font-bold mb-xs">Market IQ</h3>
+<p class="font-label-md text-label-md opacity-80 line-clamp-2">Deep dive into competitor pricing and strategy.</p>
+</div>
+<div class="flex justify-end">
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Card 9: Post Scheduler (Indigo) -->
+<div class="bg-primary-container text-on-primary-container p-md rounded-xl shadow-sm flex flex-col justify-between transition-transform duration-200 active:scale-[0.98] group cursor-pointer h-48">
+<div>
+<div class="text-2xl mb-sm">ðŸ“…</div>
+<h3 class="font-headline-sm text-headline-sm font-bold mb-xs">Scheduler</h3>
+<p class="font-label-md text-label-md opacity-80 line-clamp-2">Automate your social media presence effortlessly.</p>
+</div>
+<div class="flex justify-end">
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Card 10: Email Bot (White) -->
+<div class="bg-surface-container-lowest text-on-surface p-md rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between transition-transform duration-200 active:scale-[0.98] group cursor-pointer h-48">
+<div>
+<div class="text-2xl mb-sm">ðŸ“§</div>
+<h3 class="font-headline-sm text-headline-sm font-bold mb-xs">Email Bot</h3>
+<p class="font-label-md text-label-md text-on-surface-variant line-clamp-2">Draft professional outreach and support emails.</p>
+</div>
+<div class="flex justify-end">
+<span class="material-symbols-outlined text-primary transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Card 11: Legal Ease (White) - Full width or center aligned -->
+<div class="bg-surface-container-lowest text-on-surface p-md rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between transition-transform duration-200 active:scale-[0.98] group cursor-pointer h-48 col-span-2">
+<div>
+<div class="text-2xl mb-sm">âš–ï¸</div>
+<h3 class="font-headline-sm text-headline-sm font-bold mb-xs">Legal Ease</h3>
+<p class="font-label-md text-label-md text-on-surface-variant line-clamp-2">Generate simple terms of service and privacy policies for your local business.</p>
+</div>
+<div class="flex justify-end">
+<span class="material-symbols-outlined text-primary transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Featured Section Background with Animation -->
+<div class="mt-xl relative h-48 rounded-2xl overflow-hidden shadow-lg">
+
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center text-center p-md">
+<div>
+<h4 class="font-headline-md text-white drop-shadow-md mb-xs">Unlock Pro Features</h4>
+<p class="font-body-md text-white/90 drop-shadow-sm mb-md">Get unlimited access to all AI tools for â‚¹499/mo</p>
+<button class="bg-primary text-white px-xl py-sm rounded-full font-bold shadow-lg transition-all active:scale-95">Upgrade Now</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe h-16 bg-surface shadow-[0_-4px_12px_0_rgba(0,0,0,0.06)] rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant transition-transform duration-300 active:scale-90">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant transition-transform duration-300 active:scale-90">
+<span class="material-symbols-outlined">report_problem</span>
+<span class="font-label-md text-label-md">Issues</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-primary-container bg-primary-container w-14 h-14 rounded-full -mt-10 shadow-lg transition-transform duration-300 active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant transition-transform duration-300 active:scale-90">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-md text-label-md">Directory</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary font-bold transition-transform duration-300 active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-md text-label-md">AI Hub</span>
+</button>
+</nav>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const arrow = card.querySelector('.material-symbols-outlined');
+                if (arrow) arrow.style.transform = 'translateX(4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                const arrow = card.querySelector('.material-symbols-outlined');
+                if (arrow) arrow.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Simple scroll reveal simulation
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.grid > div').forEach((card, index) => {
+            card.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-500');
+            card.style.transitionDelay = `${index * 50}ms`;
+            observer.observe(card);
+        });
+    </script>
+</body></html>
+
+

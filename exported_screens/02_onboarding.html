@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Circl - Welcome to Your Neighborhood</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#312f39",
+                    "secondary-fixed": "#ffdbd0",
+                    "surface-variant": "#e5e0ee",
+                    "tertiary-fixed": "#6bff8f",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#dcd8e5",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#fe6a34",
+                    "surface-container-low": "#f6f1ff",
+                    "on-tertiary-container": "#8fffa3",
+                    "tertiary-container": "#007834",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#fcf8ff",
+                    "on-secondary-container": "#5d1900",
+                    "on-surface-variant": "#464555",
+                    "error": "#ba1a1a",
+                    "outline": "#777586",
+                    "surface-tint": "#5244de",
+                    "on-surface": "#1c1a24",
+                    "primary-container": "#5b4fe8",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ebe6f4",
+                    "secondary": "#ab3500",
+                    "outline-variant": "#c8c4d8",
+                    "surface-container-highest": "#e5e0ee",
+                    "background": "#fcf8ff",
+                    "inverse-on-surface": "#f3effc",
+                    "on-background": "#1c1a24",
+                    "on-primary-fixed-variant": "#3824c7",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#e3dfff",
+                    "secondary-fixed-dim": "#ffb59d",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "on-tertiary-fixed": "#002109",
+                    "on-primary-container": "#e8e4ff",
+                    "on-secondary-fixed-variant": "#832600",
+                    "inverse-primary": "#c4c0ff",
+                    "primary-fixed-dim": "#c4c0ff",
+                    "surface": "#fcf8ff",
+                    "tertiary": "#005d26",
+                    "primary": "#4231cf",
+                    "on-secondary-fixed": "#390c00",
+                    "surface-container": "#f0ecf9",
+                    "on-primary-fixed": "#120068",
+                    "on-tertiary-fixed-variant": "#005321"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "container-margin": "16px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "gutter": "12px",
+                    "xs": "4px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #F8F9FF;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pagination-dot {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pagination-dot.active {
+            width: 24px;
+            background-color: #4231cf;
+        }
+        .onboarding-card {
+            box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.06);
+        }
+        .btn-hover-effect {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-hover-effect:active {
+            transform: scale(0.97);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col items-center justify-between overflow-hidden">
+<!-- Top Content: Illustration Section -->
+<div class="relative w-full aspect-[4/3] max-h-[397px] overflow-hidden flex flex-col items-center justify-center">
+<!-- Floating Ambient Background (Subtle) -->
+<div class="absolute inset-0 bg-gradient-to-b from-primary-fixed to-transparent opacity-30"></div>
+<!-- Neighborhood Illustration -->
+<div class="z-10 w-full h-full p-gutter">
+<div class="w-full h-full rounded-[32px] overflow-hidden shadow-sm relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A warm, vibrant digital illustration of a modern Indian neighborhood at dusk. Stylized apartment buildings with balconies filled with plants and warm lights are visible. In the foreground, diverse neighbors are interacting in a lush community garden. The art style is minimalist and corporate-modern, utilizing a primary palette of electric indigo and soft sunset oranges, creating a sense of safety, warmth, and high-tech community connectivity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXt9YC8Fu8mkMLPpjrh2xgcyvZycbICzjLEHXAEDy-rlbX_ryxy8zJ0ZxwCMC_wK57f9R8W6Tyxst8_y3EKwp3l4hv6NyA4LMbGRPIchPvSw1StZ5VYnzCIkHNQgJWS3nznpvKhzCpxfsCUx0bCtrN12HbN5yGGUHcdNcgRNT1nWgcJikml1cOmOoRu4WREkbXnkuFIa342LuawV9js84S4oDXizITDOBdwXFWwka9VUZ1Sngl3j_DaTdcjBZGgbxOBz4xgledkqND')">
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content: Welcome Text -->
+<div class="w-full px-container-margin text-center flex-1 flex flex-col justify-center gap-md">
+<div class="space-y-sm">
+<h1 class="font-display-lg text-display-lg text-on-background tracking-tight">
+                Apna Mohalla, <span class="text-primary">Apni Awaaz</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[320px] mx-auto leading-relaxed">
+                Connect with verified neighbors, solve local problems, grow your business
+            </p>
+</div>
+</div>
+<!-- Interaction Area: Buttons -->
+<div class="w-full px-container-margin pb-xl space-y-md">
+<!-- Primary Action -->
+<button class="w-full h-14 bg-primary text-on-primary font-headline-sm text-headline-sm rounded-xl flex items-center justify-center shadow-lg btn-hover-effect active:bg-primary-container transition-colors">
+            Join Your Colony
+        </button>
+<!-- Social/Secondary Logins -->
+<div class="grid grid-cols-1 gap-sm">
+<button class="w-full h-12 bg-white border border-outline-variant text-on-surface font-label-md text-label-md rounded-xl flex items-center justify-center gap-sm btn-hover-effect hover:bg-surface-container-low">
+<img alt="Google Logo" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCca50WnKZcoTebj4vdGfRBcx1MrsoWSTiuIwuS6etEi3PfBH7I_uIxxXcqkCird5rDr3U0cJJXrUdpdI0uqikHpRsae_aZyZna7gkt1d9gvyjWXhIQ1Oa1wXzvtBdbgCYQ-iTjNItuNKdllVTQ4hkH2W2SsIuBCs91TRHh9OTv1cv2gV0kapTvJVjssByAQjETjegOqEwEZcu7oG4rE00UyvgIQD8pDfGb5iPtGGcGY6m9rowvcSKsdWZ0D6fs1IE0Ja3aEN8yOwvm"/>
+                Sign in with Google
+            </button>
+<button class="w-full h-12 bg-white border border-outline-variant text-on-surface font-label-md text-label-md rounded-xl flex items-center justify-center gap-sm btn-hover-effect hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-on-surface-variant">phone_iphone</span>
+                Continue with Phone
+            </button>
+</div>
+<!-- Footer / Pagination -->
+<div class="flex justify-center items-center gap-xs py-md">
+<div class="pagination-dot active h-2 rounded-full bg-primary"></div>
+<div class="pagination-dot w-2 h-2 rounded-full bg-outline-variant"></div>
+<div class="pagination-dot w-2 h-2 rounded-full bg-outline-variant"></div>
+<div class="pagination-dot w-2 h-2 rounded-full bg-outline-variant"></div>
+</div>
+<!-- Terms and Privacy -->
+<p class="font-label-sm text-label-sm text-outline text-center px-lg">
+            By joining, you agree to our <span class="text-on-surface underline">Terms of Service</span> and <span class="text-on-surface underline">Privacy Policy</span>.
+        </p>
+</div>
+<!-- Background Decoration Elements (Optional for "Corporate Minimalist" feel) -->
+<div class="fixed -z-10 top-[-10%] right-[-10%] w-[40%] aspect-square bg-primary/5 rounded-full blur-[80px]"></div>
+<div class="fixed -z-10 bottom-[-5%] left-[-10%] w-[50%] aspect-square bg-secondary-container/5 rounded-full blur-[100px]"></div>
+<script>
+        // Micro-interaction: Active button states and tactile feedback
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('touchstart', () => {
+                // Potential for Haptic Feedback via Navigator API if supported
+                if (window.navigator.vibrate) window.navigator.vibrate(10);
+            });
+        });
+
+        // Simple Pagination Simulation for the visual demo
+        const dots = document.querySelectorAll('.pagination-dot');
+        let activeIndex = 0;
+        
+        // This is just for demonstration if you click the dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                dots.forEach(d => {
+                    d.classList.remove('active', 'bg-primary');
+                    d.classList.add('w-2', 'bg-outline-variant');
+                });
+                dot.classList.remove('w-2', 'bg-outline-variant');
+                dot.classList.add('active', 'bg-primary');
+            });
+        });
+    </script>
+</body></html>
+
+

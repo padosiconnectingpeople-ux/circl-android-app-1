@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Profile - Circl</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#312f39",
+                    "secondary-fixed": "#ffdbd0",
+                    "surface-variant": "#e5e0ee",
+                    "tertiary-fixed": "#6bff8f",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#dcd8e5",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#fe6a34",
+                    "surface-container-low": "#f6f1ff",
+                    "on-tertiary-container": "#8fffa3",
+                    "tertiary-container": "#007834",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#fcf8ff",
+                    "on-secondary-container": "#5d1900",
+                    "on-surface-variant": "#464555",
+                    "error": "#ba1a1a",
+                    "outline": "#777586",
+                    "surface-tint": "#5244de",
+                    "on-surface": "#1c1a24",
+                    "primary-container": "#5b4fe8",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ebe6f4",
+                    "secondary": "#ab3500",
+                    "outline-variant": "#c8c4d8",
+                    "surface-container-highest": "#e5e0ee",
+                    "background": "#fcf8ff",
+                    "inverse-on-surface": "#f3effc",
+                    "on-background": "#1c1a24",
+                    "on-primary-fixed-variant": "#3824c7",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#e3dfff",
+                    "secondary-fixed-dim": "#ffb59d",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "on-tertiary-fixed": "#002109",
+                    "on-primary-container": "#e8e4ff",
+                    "on-secondary-fixed-variant": "#832600",
+                    "inverse-primary": "#c4c0ff",
+                    "primary-fixed-dim": "#c4c0ff",
+                    "surface": "#fcf8ff",
+                    "tertiary": "#005d26",
+                    "primary": "#4231cf",
+                    "on-secondary-fixed": "#390c00",
+                    "surface-container": "#f0ecf9",
+                    "on-primary-fixed": "#120068",
+                    "on-tertiary-fixed-variant": "#005321"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "container-margin": "16px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "gutter": "12px",
+                    "xs": "4px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #F8F9FF;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .profile-tab-active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: #4231cf;
+            border-radius: 99px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- Top Navigation Anchor (As per JSON) -->
+<header class="bg-surface dark:bg-on-background shadow-sm flex justify-between items-center w-full px-container-margin py-sm fixed top-0 z-50">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">location_on</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Circl</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="transition-all duration-200 active:scale-95 text-on-surface-variant">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="transition-all duration-200 active:scale-95 text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-14 pb-20">
+<!-- Cover Photo Section -->
+<div class="relative w-full h-48 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="A cinematic, wide-angle shot of a serene Indian residential colony during the golden hour. The scene features clean paved streets, lush green trees lining the sidewalks, and modern, elegant Indian villas with warm glowing lights. The sky is a soft blend of orange and purple, creating a vibrant yet peaceful neighborhood atmosphere that reflects the brand's community-centric and dependable personality." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXrj1_pBbhe2AY1DBJ3eOaR9zeGsOXztObhZTJEz3qCkVDjd2U_SowdSits9rfTBNGdgKdROVMfaQdd3v_VLWRDln-hxxJ-XXlpa4H-YnSqvNfUFCNW8Yno_yD0cYYwKiDQ0IkSo5mNcX2NHPSF_NskiUB-Sfas7UfoX-27iCznHFwcw_6foCXrTWz8NpFthbugV_xQsgGSk6UzZ2BpC5UUeTZv8bNzmWEOKxNZuFWSoGCcEX7pIlS8V_2bkVWXVAmvJYAUb6eXgeX')"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"></div>
+</div>
+<!-- Profile Header -->
+<div class="relative px-container-margin -mt-16 text-center">
+<div class="inline-block relative">
+<div class="w-32 h-32 rounded-full border-4 border-surface overflow-hidden shadow-lg bg-surface">
+<img class="w-full h-full object-cover" data-alt="A professional yet friendly portrait of Vansh Sharma, a young Indian male in his late 20s. He has a warm smile and is wearing a modern casual blazer. The background is a soft, out-of-focus urban environment. The lighting is bright and high-key, maintaining the clean, minimalist corporate aesthetic of the UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVCq0YAYJPo7GVOKa6NTw4dFMa2b4FonCyStdDKDPebp6nLY0tD9dZO1eHktD0iU70l4avx5vp37fmfQHEPxL2D2OWlAUPcDeSloAf-RNMGnh2I3E9jxZXf8NMoEF2Ae2htfQgNyXiBaXYYe-2nFE5NGYTsNPmA1_qdXig0mHEgbG8ln50Kwg-t8S3k6nBePC3hQwY9QOTfkbZ5nTeABooWDoqvBjIFfQf0jkZS7NpFlftgTmAR3qfDAl36_xYxXI_pilqT0_sVanK"/>
+</div>
+<div class="absolute bottom-2 right-2 bg-primary text-white p-1 rounded-full border-2 border-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="mt-md">
+<h1 class="font-headline-md text-headline-md text-on-surface font-extrabold">Vansh Sharma</h1>
+<p class="font-label-md text-label-md text-outline flex items-center justify-center gap-xs mt-1">
+                    Patiala â€º Urban Estate â€º B Block
+                </p>
+<div class="mt-sm inline-flex items-center gap-xs px-md py-xs bg-surface-container-high rounded-full">
+<span class="text-secondary">â­</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface-variant">Helped 23 neighbors</span>
+</div>
+</div>
+<div class="flex flex-wrap justify-center gap-sm mt-lg">
+<span class="px-md py-sm bg-primary-container/10 text-primary-container font-label-md text-label-md rounded-full font-bold">Business</span>
+<span class="px-md py-sm bg-primary-container/10 text-primary-container font-label-md text-label-md rounded-full font-bold">Tech</span>
+<span class="px-md py-sm bg-primary-container/10 text-primary-container font-label-md text-label-md rounded-full font-bold">Cricket</span>
+</div>
+<button class="mt-lg w-full max-w-xs py-md border-2 border-primary text-primary rounded-xl font-bold font-label-md text-label-md hover:bg-primary/5 transition-colors active:scale-95">
+                Edit Profile
+            </button>
+</div>
+<!-- Stats Row -->
+<div class="mt-xl px-container-margin">
+<div class="grid grid-cols-3 bg-surface rounded-xl p-md shadow-sm border border-outline-variant/30">
+<div class="text-center border-r border-outline-variant/50">
+<p class="font-headline-sm text-headline-sm text-on-surface">47</p>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Posts</p>
+</div>
+<div class="text-center border-r border-outline-variant/50">
+<p class="font-headline-sm text-headline-sm text-on-surface">12</p>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Reviews</p>
+</div>
+<div class="text-center">
+<p class="font-headline-sm text-headline-sm text-on-surface">3</p>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Skills</p>
+</div>
+</div>
+</div>
+<!-- Tabs -->
+<div class="mt-xl border-b border-outline-variant/30 px-container-margin sticky top-14 bg-background z-40">
+<div class="flex justify-between items-center overflow-x-auto no-scrollbar">
+<button class="relative py-md px-md font-label-md text-label-md font-bold text-primary profile-tab-active">Posts</button>
+<button class="py-md px-md font-label-md text-label-md font-semibold text-outline">Listings</button>
+<button class="py-md px-md font-label-md text-label-md font-semibold text-outline">Skills</button>
+<button class="py-md px-md font-label-md text-label-md font-semibold text-outline">Business</button>
+</div>
+</div>
+<!-- 3x2 Photo Grid -->
+<div class="mt-gutter px-container-margin pb-xl">
+<div class="grid grid-cols-3 gap-gutter">
+<div class="aspect-square rounded-lg overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A vibrant shot of a local community park clean-up drive in India. Neighbors of various ages are seen working together under a bright morning sun. The lighting is crisp and the colors are saturated, highlighting the electric indigo and energetic orange accents of the volunteers' gear. Modern corporate aesthetic with clean lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0W3vQXvmUay7cvEYZRmeZJyTrh3FOFezWuJxAX-8pgq2PpHExLBixHsQ1XHKnhJTQekc-SAOu6J4OzxWjAcU7tjyqwlaZ3ke9Yu1q7QSegpKWIlHYVsngifiKYGeHeMcFTeovgoU3BhGY5JFBQ9IagTdp4N5pIl8af8Dq5O2wRfl32usQR56XFJPsEcM7-mTu1SO5KHjd8TE15dStTB2GgXTdM8FbCD1wjuiLAInldSJSx5RizRsAnlYmnF5lFxbJYfBV9-F-JbHT"/>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A macro shot of a delicious homemade Indian meal, beautifully plated with colorful spices and fresh herbs. The lighting is soft and diffused, creating a high-end food photography look. The setting is a modern, minimalist Indian kitchen with clean white surfaces, maintaining the light-mode UI consistency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0qF6U3Av3K6Mk89aOKYKnwJ3H3c9NAXmlFn-sejt1e8wtnphMJ_4Hxjy3M8Op7CPj5lJXmd9kZJ0PF24rGWtvWYZmXY-1YnRUXpa08p2qREhG8ePx9_GsMfY46HsPja-0B-oHKjGMZKK9sC7VI0LZ47rzM8uKWj5ogg5yWhln7QFuVujOUdtIrf9MHAeXQSRmnqYTEZFs9uoeh2MNCREBGonkL41Cj1ldq44wQHeV4FycORuKXnbZHmN9BbEj0NbYw9J56hSiQBrb"/>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A spirited neighborhood cricket match on a well-maintained local ground. The action is captured with a high shutter speed, showing a player mid-swing. The background features modern Indian apartment complexes under a clear blue sky. Bright, energetic, and community-focused atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVNhY9OpVl3QK9Kg0ob7hTenLWdY3y9vWng_nGTS6wkA-ICdbe7sdLAEd_hErDw_URoAlSF2kCMiJdsjCme9Nirp1c0Uk2_iszfZQP1bJ0EdVoIPOIZmqK-qIe3aPtmBWhjBZsVEDan-fKmNARxVO_fn_MjJ7RVk9W_jLRJHTCJVqrijfyZQLlPxaRzflaN2A961NEMHgpfB_zu1HnmgSeR7B04qAPTebkVAsb1sfLFDe8ssEXQCP2u3Bgbk8GnZqJtFbI5XbZpm9y"/>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A high-tech community co-working space setup in a residential circle. Features include sleek ergonomic chairs, wooden desks, and multiple monitors with coding environments visible. The lighting is cool and professional, with subtle electric indigo accent lighting reflecting the brand's tech-forward identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBixIGbdSXbwgr70vQOR9SitKX_dU_ox-ePtw0g925_sP8gPPEA8CzGNBfGyGz_g6EdfgwUg_fxqq3uj2pWJ5fGVCPFcGHfP3fUeFvu3JW88xgKeLAXifdGOAy3KmO1j_3hl-Sn0PePrCOBV8uCP28nWwwk7ibwn7mhY8qL7i-Sexa9fBJw1uCfdZ-DfunOEQK0awI4NC6jg3TkoVMh6GcUw3_2FbdMtGdRrAw62hobd97RwVCHJLSdwcJHFXT3fq0JR5Azeibd_GSX"/>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A festive neighborhood gathering during Diwali, with modern LED decorations and traditional diyas casting a warm glow. People are seen exchanging sweets in a stylishly decorated community hall. The scene is vibrant, warm, and captures the dependable nature of neighborhood living in India." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6k8-ziAlumk77Dt8QbyaV5UseK5E2Ia8p8wpHRCVT3QwA4FhhCk1SHyTmSZDosR4KeRf58rn1QX3fvrkkPvMiUyovgMmIRhjYD5-OXH9DaP-E0TMdOvPJpYkLqzkStLWKAAWTPBsNAcwPj5lm5GctDUh05Qw2aL7eackFy0WkwXDg-QU_V1jThMZLcRtLZC2lJk2vxeeO2_dZqZ9VU5QTeTRIO2_TuEF65hHY2k29aslAVg5JrgIiJpEXDJ-aT4G1wvgzcQltqliR"/>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A close-up shot of a smartphone screen displaying the 'Circl' app's dashboard, held by a person in a modern cafe. The background is a soft bokeh of greenery and urban architecture. The focus is on the clean, minimalist UI design and the vibrant interaction on the screen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ4R7sClDgq0IOvCRD37zmTRcQq3rNnzAXLOePWswLvESF6moRoy3TmSyKNd08DN_qTOR8HxDGvMuNEdeRSP0NmgIKE45K3VJJ1QVxcw43vAXlIfmfuP-2vkw8j0_v5jnDx5FH_vl1KtihPGGHkiGfikevrBRrBwMdoH9lcOtd5xy6DxSqfjPoK12xK1SLfN2daXwHUOnPS_2B5KuQpPlsXbnJVYu9gCoX-A3IK-LQx9EV0wDZDf98uH5WE-Kdx9hLDqa-aSrwFyhz"/>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell (As per JSON) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe h-16 bg-surface dark:bg-inverse-surface shadow-[0_-4px_12px_0_rgba(0,0,0,0.06)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant transition-transform duration-300 active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant transition-transform duration-300 active:scale-90" href="#">
+<span class="material-symbols-outlined">report_problem</span>
+<span class="font-label-md text-label-md">Issues</span>
+</a>
+<div class="relative -top-4">
+<button class="w-14 h-14 bg-primary rounded-full shadow-lg flex items-center justify-center text-white active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[32px]">add_circle</span>
+</button>
+</div>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant transition-transform duration-300 active:scale-90" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-md text-label-md">Directory</span>
+</a>
+<!-- ACTIVE STATE: Profile tab -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold transition-transform duration-300 active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for tabs
+        const tabButtons = document.querySelectorAll('.sticky button');
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabButtons.forEach(b => {
+                    b.classList.remove('profile-tab-active', 'text-primary', 'font-bold');
+                    b.classList.add('text-outline', 'font-semibold');
+                });
+                btn.classList.add('profile-tab-active', 'text-primary', 'font-bold');
+                btn.classList.remove('text-outline', 'font-semibold');
+            });
+        });
+
+        // Pull to refresh effect mockup
+        let startY = 0;
+        window.addEventListener('touchstart', e => {
+            startY = e.touches[0].pageY;
+        }, {passive: true});
+
+        window.addEventListener('touchmove', e => {
+            const y = e.touches[0].pageY;
+            if (window.scrollY === 0 && y > startY) {
+                // Potential pull to refresh visual trigger
+            }
+        }, {passive: true});
+    </script>
+</body></html>
+
+

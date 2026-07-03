@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Circl AI â€” Arjun Chat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chat-container { height: calc(100vh - 140px); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#312f39",
+                        "secondary-fixed": "#ffdbd0",
+                        "surface-variant": "#e5e0ee",
+                        "tertiary-fixed": "#6bff8f",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dcd8e5",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#fe6a34",
+                        "surface-container-low": "#f6f1ff",
+                        "on-tertiary-container": "#8fffa3",
+                        "tertiary-container": "#007834",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fcf8ff",
+                        "on-secondary-container": "#5d1900",
+                        "on-surface-variant": "#464555",
+                        "error": "#ba1a1a",
+                        "outline": "#777586",
+                        "surface-tint": "#5244de",
+                        "on-surface": "#1c1a24",
+                        "primary-container": "#5b4fe8",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#ebe6f4",
+                        "secondary": "#ab3500",
+                        "outline-variant": "#c8c4d8",
+                        "surface-container-highest": "#e5e0ee",
+                        "background": "#fcf8ff",
+                        "inverse-on-surface": "#f3effc",
+                        "on-background": "#1c1a24",
+                        "on-primary-fixed-variant": "#3824c7",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#e3dfff",
+                        "secondary-fixed-dim": "#ffb59d",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "on-tertiary-fixed": "#002109",
+                        "on-primary-container": "#e8e4ff",
+                        "on-secondary-fixed-variant": "#832600",
+                        "inverse-primary": "#c4c0ff",
+                        "primary-fixed-dim": "#c4c0ff",
+                        "surface": "#fcf8ff",
+                        "tertiary": "#005d26",
+                        "primary": "#4231cf",
+                        "on-secondary-fixed": "#390c00",
+                        "surface-container": "#f0ecf9",
+                        "on-primary-fixed": "#120068",
+                        "on-tertiary-fixed-variant": "#005321"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "container-margin": "16px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xs": "4px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
+<!-- Top Navigation Bar (Shared Component Logic) -->
+<header class="bg-surface dark:bg-on-background shadow-sm docked full-width top-0 z-50 flex justify-between items-center w-full px-container-margin py-sm">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold shadow-md">
+                AJ
+            </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed">Arjun AI</span>
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></div>
+<span class="text-label-md font-label-md text-on-surface-variant">Online â€¢ Tera Co-founder</span>
+</div>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-all active:scale-95 text-on-surface-variant">
+<span class="material-symbols-outlined">history</span>
+</button>
+</header>
+<main class="flex-1 overflow-hidden relative">
+<div class="chat-container overflow-y-auto px-container-margin pt-md pb-xl hide-scrollbar space-y-md">
+<!-- Business Health Score Card (Bento Style) -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-md border border-outline-variant/30">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Business Health Score</h3>
+<div class="flex items-baseline gap-xs mt-1">
+<span class="text-display-lg font-display-lg text-secondary-container">78</span>
+<span class="text-body-md font-body-md text-outline">/100</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">analytics</span>
+</div>
+<div class="grid grid-cols-1 gap-sm">
+<div class="space-y-1">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span>Brand</span>
+<span>85%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 85%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span>Sales</span>
+<span>62%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container" style="width: 62%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span>Marketing</span>
+<span>74%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 74%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span>Operations</span>
+<span>90%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary" style="width: 90%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span>Growth</span>
+<span>55%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container" style="width: 55%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Chat History -->
+<div class="flex flex-col gap-gutter">
+<!-- Arjun Message -->
+<div class="flex flex-col items-start max-w-[85%]">
+<div class="bg-primary-container text-on-primary-container p-md rounded-2xl rounded-tl-none shadow-sm">
+<p class="font-body-lg text-body-lg">Arre welcome back! ðŸ‘‹ Aaj business ka kya scene hai? Ready to scale up your circle? Kuch naya plan karte hain!</p>
+</div>
+<span class="text-label-sm font-label-sm text-outline mt-1 ml-1">11:03 AM</span>
+</div>
+<!-- User Message -->
+<div class="flex flex-col items-end self-end max-w-[85%]">
+<div class="bg-surface-container-highest text-on-surface p-md rounded-2xl rounded-tr-none shadow-sm">
+<p class="font-body-lg text-body-lg">Hey Arjun, I'm thinking of launching a new artisanal perfume brand. Packaging is ready, but unsure about the first sales channel.</p>
+</div>
+<span class="text-label-sm font-label-sm text-outline mt-1 mr-1">11:05 AM</span>
+</div>
+<!-- Arjun Response -->
+<div class="flex flex-col items-start max-w-[85%]">
+<div class="bg-primary-container text-on-primary-container p-md rounded-2xl rounded-tl-none shadow-sm space-y-md">
+<p class="font-body-lg text-body-lg">Perfume brand? Superb choice! ðŸŒ¸ Local demand bahut high hai. My advice? Start with Meesho alongside your Circl neighborhood. Massive reach milega for artisanal products without heavy marketing burn.</p>
+<div class="bg-on-primary-container/10 p-sm rounded-lg border border-on-primary-container/20">
+<p class="font-label-md text-label-md italic">Pro-tip: Focus on 'Pocket Perfumes' first, price point is very sticky for new buyers.</p>
+</div>
+<button class="w-full py-md px-lg bg-secondary-container text-on-secondary-fixed flex justify-between items-center rounded-xl font-bold transition-transform active:scale-95 shadow-md">
+<span>Do This Now</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<span class="text-label-sm font-label-sm text-outline mt-1 ml-1">11:06 AM</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Input Bar -->
+<footer class="bg-surface p-md pb-container-margin fixed bottom-0 left-0 w-full z-50">
+<div class="flex items-center gap-sm bg-surface-container-high rounded-full px-md py-sm border border-outline-variant/30">
+<button class="text-on-surface-variant p-1">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 font-body-md text-body-md placeholder:text-outline" placeholder="Type a message..." type="text"/>
+<button class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center transition-transform active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</footer>
+<!-- Bottom Navigation (Shared Component Integration) -->
+<!-- Hidden for this specific focused task screen as per "Task-Focused" suppression rule in instructions, but if needed, we follow the JSON structure. 
+         Based on the requirement for 'Send input bar at bottom', we prioritize the task focus over the global nav. -->
+<script>
+        // Smooth scroll to bottom of chat
+        const chatContainer = document.querySelector('.chat-container');
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        // Interaction logic
+        document.querySelector('input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter' && this.value.trim() !== '') {
+                const message = this.value;
+                const userBubble = `
+                    <div class="flex flex-col items-end self-end max-w-[85%] opacity-0 translate-y-4 animate-in fade-in slide-in-from-bottom-2 duration-300 fill-mode-forwards">
+                        <div class="bg-surface-container-highest text-on-surface p-md rounded-2xl rounded-tr-none shadow-sm">
+                            <p class="font-body-lg text-body-lg">${message}</p>
+                        </div>
+                        <span class="text-label-sm font-label-sm text-outline mt-1 mr-1">Just now</span>
+                    </div>
+                `;
+                chatContainer.insertAdjacentHTML('beforeend', userBubble);
+                this.value = '';
+                chatContainer.scrollTo({ top: chatContainer.scrollHeight, behavior: 'smooth' });
+            }
+        });
+
+        // Add tailwind animations via style tag if not present
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInUp {
+                from { opacity: 0; transform: translateY(16px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .animate-in {
+                animation: slideInUp 0.3s ease-out forwards;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body></html>
+
+

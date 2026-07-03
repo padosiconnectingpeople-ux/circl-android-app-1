@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Circl - Home Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#312f39",
+                    "secondary-fixed": "#ffdbd0",
+                    "surface-variant": "#e5e0ee",
+                    "tertiary-fixed": "#6bff8f",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#dcd8e5",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#fe6a34",
+                    "surface-container-low": "#f6f1ff",
+                    "on-tertiary-container": "#8fffa3",
+                    "tertiary-container": "#007834",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#fcf8ff",
+                    "on-secondary-container": "#5d1900",
+                    "on-surface-variant": "#464555",
+                    "error": "#ba1a1a",
+                    "outline": "#777586",
+                    "surface-tint": "#5244de",
+                    "on-surface": "#1c1a24",
+                    "primary-container": "#5b4fe8",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ebe6f4",
+                    "secondary": "#ab3500",
+                    "outline-variant": "#c8c4d8",
+                    "surface-container-highest": "#e5e0ee",
+                    "background": "#fcf8ff",
+                    "inverse-on-surface": "#f3effc",
+                    "on-background": "#1c1a24",
+                    "on-primary-fixed-variant": "#3824c7",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#e3dfff",
+                    "secondary-fixed-dim": "#ffb59d",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "on-tertiary-fixed": "#002109",
+                    "on-primary-container": "#e8e4ff",
+                    "on-secondary-fixed-variant": "#832600",
+                    "inverse-primary": "#c4c0ff",
+                    "primary-fixed-dim": "#c4c0ff",
+                    "surface": "#fcf8ff",
+                    "tertiary": "#005d26",
+                    "primary": "#4231cf",
+                    "on-secondary-fixed": "#390c00",
+                    "surface-container": "#f0ecf9",
+                    "on-primary-fixed": "#120068",
+                    "on-tertiary-fixed-variant": "#005321"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "container-margin": "16px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "gutter": "12px",
+                    "xs": "4px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .story-gradient { background: linear-gradient(45deg, #4231cf, #ab3500); padding: 2px; }
+        .iphone-indicator { width: 134px; height: 5px; background: #000; border-radius: 100px; margin: 0 auto 8px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- Top AppBar -->
+<header class="bg-surface dark:bg-on-background shadow-sm sticky top-0 z-50 flex justify-between items-center w-full px-container-margin py-sm">
+<div class="flex items-center">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Circl</span>
+</div>
+<div class="flex items-center gap-xs cursor-pointer active:opacity-70 transition-opacity">
+<span class="font-label-md text-label-md text-on-surface">Sunshine Apts</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface">arrow_drop_down</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="transition-all duration-200 active:scale-95 text-on-surface-variant">
+<span class="material-symbols-outlined">search</span>
+</button>
+<div class="relative">
+<button class="transition-all duration-200 active:scale-95 text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<span class="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full border-2 border-surface"></span>
+</div>
+</div>
+</header>
+<main class="pb-24">
+<!-- Story Bar -->
+<section class="py-md overflow-x-auto hide-scrollbar flex gap-md px-container-margin">
+<!-- Add Story -->
+<div class="flex flex-col items-center gap-xs shrink-0">
+<div class="w-16 h-16 rounded-full border-2 border-dashed border-outline-variant flex items-center justify-center bg-surface-container-low cursor-pointer">
+<span class="material-symbols-outlined text-primary">add</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">You</span>
+</div>
+<!-- Other Stories -->
+<div class="flex flex-col items-center gap-xs shrink-0">
+<div class="story-gradient rounded-full">
+<div class="w-[60px] h-[60px] rounded-full border-2 border-surface overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a friendly community leader in a modern setting. The lighting is warm and inviting, using a soft-focus background of a contemporary urban apartment building. The color palette features warm skin tones and crisp whites, maintaining a vibrant community-centric feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7WtJeH5UpHw_n4FXiI-01ed-SyWqCoWMIcP_gFYLKIuteyVpYPyiyP5XWqauDAwaNU9uNCh2AEbKafA1BFKzzd2ctOyieNdmU9jiO4FXYAPyciQyI3kmYgvs5kn2ErOTx9RDP8uXVehUX2_L8-2pQHaQwzUqO0GKP_aVVenValgo970_0AaykWVNqUayyDx5kb2524h-dsbqHP56mHsdKvqOh4JL8cMoqY5V5KbrgpHrAYtMag9nMTPY7teSxXpIbsWnBog1PbSVX"/>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface">Society</span>
+</div>
+<div class="flex flex-col items-center gap-xs shrink-0">
+<div class="story-gradient rounded-full">
+<div class="w-[60px] h-[60px] rounded-full border-2 border-surface overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A stylish portrait of a neighborhood baker holding a fresh loaf of sourdough. The lighting is bright and natural, coming from a large window. The background shows a minimalist kitchen with clean wooden accents and white tiles, matching the minimalist modern corporate aesthetic of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD57y22yep_dAf1pa-x-40iow6s5oCbCUPl2WCK_7iJz_6g21pyA3EVs1HLXgsx0oAlCgi8iev7q8hbw0iG_r7E5nzkqxDflVbqBj03GLYuN71omGJgNE2zYT56OkiILQtwkkH75jh7Xygtm_WBQmwALZPmPP2kZe1U2KyiA4muV2S24l71L864w9DxSmArn5ohltpdEi99J_z_rEUBgkivn1cH-QylcxBjhMz7crpoIcDR5LF_h82i7Fbrgd-A6V7et3pxa5k1ktlG"/>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface">Events</span>
+</div>
+<div class="flex flex-col items-center gap-xs shrink-0">
+<div class="story-gradient rounded-full">
+<div class="w-[60px] h-[60px] rounded-full border-2 border-surface overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A macro shot of vibrant green plants in a community garden under the morning sun. The lighting is high-saturation and energetic, with clear dewdrops reflecting the light. The composition follows a minimalist structure with sharp focus on the central subject and a soft bokeh background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpd-WhuCz8_4G10vss5W6yVYnroxKMx5inOk6ndU0AOqrNhgLtgVq7L92ldHj3m_bP9MWiQjzfNn9wmHRo8WewYaIoB9iZMqjejA4jCCaEy8fL1qT5Vs0DLdHv7ijwvJek5tJboCLpRG_0D2kwv65eyyRYgn8rE6eR5gzd6-ceWIOnXoAfmJdUASMBJrUIcoRMSVYMSEJ1B38TX_mLo65aVqi2EieHSdlrPRVNchRStsdU7qvS9Tr-OJ5ope7SWFgisncRgEjZZM3s"/>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface">Gardens</span>
+</div>
+</section>
+<!-- Filter Tabs -->
+<nav class="sticky top-[56px] bg-background z-40 border-b border-outline-variant/30">
+<div class="flex overflow-x-auto hide-scrollbar px-container-margin gap-lg">
+<button class="py-md border-b-2 border-primary text-primary font-bold whitespace-nowrap">Society</button>
+<button class="py-md text-on-surface-variant font-medium whitespace-nowrap">Colony</button>
+<button class="py-md text-on-surface-variant font-medium whitespace-nowrap">Area</button>
+<button class="py-md text-on-surface-variant font-medium whitespace-nowrap">City</button>
+<button class="py-md text-on-surface-variant font-medium whitespace-nowrap">All</button>
+</div>
+</nav>
+<!-- Feed List -->
+<div class="px-container-margin mt-md flex flex-col gap-gutter">
+<!-- Post 1 -->
+<article class="bg-surface rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.06)] overflow-hidden">
+<div class="p-md flex gap-md">
+<img class="w-10 h-10 rounded-full object-cover shrink-0" data-alt="A portrait of Rahul Malhotra, a handsome man in his 30s with a friendly expression. He is wearing a professional indigo polo shirt. The background is a blurred high-end apartment lobby in Mumbai. The lighting is soft and flattering, emphasizing a trustworthy and dependable community-centric personality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjr9xR-ySuyrUCQhqOF0d7d8M7LNpWv8TIMSEX2YVZan39g-EzrAqe_nI7sRuTXlap5N25rRlcguKgHp-nbh_Ii4FVXaFttcQfohs2B4l2e7Ipyaln3Wv5rl1jwsaOp8VQ7b8Ss6lEZNeqqackb-oGUoniSlWvcYWEzDBWzVkehF815lJCWs2U2B7FH_hfIT6QAssJLcU8v5Quc998h262y6J3xqBQbxfmpDZteS6OcUsXX8dPJ86gnVRhrdQbzolmnsd1kRtZxT4n"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-xs">
+<h3 class="font-bold text-on-surface">Rahul Malhotra</h3>
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="text-label-md text-outline font-label-md">Mumbai â€º Bandra â€º Hill View â€º Sunshine</span>
+</div>
+</div>
+<div class="px-md pb-md">
+<p class="font-body-lg text-body-lg leading-[1.5] text-on-surface-variant">
+                        Does anyone have recommendations for a good broadband provider in the Bandra West area? Facing some downtime lately. Thanks in advance!
+                    </p>
+</div>
+<div class="flex items-center justify-between px-md py-sm border-t border-surface-container-high">
+<div class="flex items-center gap-md">
+<div class="flex -space-x-1">
+<span class="text-[18px]">â¤ï¸</span>
+<span class="text-[18px]">ðŸ‘</span>
+</div>
+<span class="text-label-sm text-outline">12 reactions</span>
+</div>
+<div class="flex gap-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px] cursor-pointer hover:text-primary transition-colors">favorite</span>
+<span class="material-symbols-outlined text-[20px] cursor-pointer hover:text-primary transition-colors">comment</span>
+<span class="material-symbols-outlined text-[20px] cursor-pointer hover:text-primary transition-colors">share</span>
+</div>
+</div>
+</article>
+<!-- Post 2 with Photo -->
+<article class="bg-surface rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.06)] overflow-hidden">
+<div class="p-md flex gap-md">
+<img class="w-10 h-10 rounded-full object-cover shrink-0" data-alt="A friendly woman with a warm smile, wearing a vibrant ethnic dress. The setting is a bright, airy balcony overlooking an urban cityscape in Bandra. The lighting is warm and sunny, creating a vibrant, dependable community vibe. The image is crisp and professional, using high-saturation accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVcv-Coo0vcg6MBf1UH4nbvqQD28t1DBrobYbMH3B6SOJONzyrWWLW2RFYd33n6eRLO0TEpymUN8GibosmKJvTfV0ahohl2MeOrmIfP95s4Pe9hHQY8q_4ORv4LeIaGn9ZFvz6zi8rkU4x9zWs4tHUpgumId3eFKvRJVR-qORt41oALb45tofFgVcbO366avT6LpPFv9Zq72qkTjl4dqv10DWS3dWQi9P478Oc1ilxEKx2xMDmkzsvgAbwxB_VJVjTmO-8FjOy6iIW"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-xs">
+<h3 class="font-bold text-on-surface">Priya Sharma</h3>
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="text-label-md text-outline font-label-md">Mumbai â€º Bandra â€º Hill View â€º Sunshine</span>
+</div>
+</div>
+<div class="px-md pb-sm">
+<p class="font-body-lg text-body-lg leading-[1.5] text-on-surface-variant">
+                        Great turn out for the morning Yoga session today at the clubhouse! ðŸ§˜â€â™€ï¸ See you all next Sunday.
+                    </p>
+</div>
+<div class="aspect-video w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A wide-angle photo of a modern apartment clubhouse with large glass windows. A group of people are practicing yoga on colorful mats. The room is flooded with bright, natural sunlight. The aesthetic is clean, minimalist, and vibrant, featuring fresh plants and modern corporate design elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEc25BNa_b3IXSKKJtVDmVqLF2_Hz487OXc9K8r3V8wyqitnZbAMTQEZBOEgddE8urR-WgKLyDMnwzbkuo0ZiAIJptdh0Lu08xlvsOOiCLqQc-bdPYD1CjB8thVlegfBm5yUd_vnq5uVB3HQ0U9VdrQKNOU18YIAKSNhqN4ycgxGOphVA_tYsCWOWOM_ev3N_q64eP0KuOls7skEcL2aerI1ndWu8BYWiOMkiyyBeASEC5_wDS6vW8teg6reDzIR49NkdN7AhIsgp6"/>
+</div>
+<div class="flex items-center justify-between px-md py-sm border-t border-surface-container-high">
+<div class="flex gap-lg w-full justify-around items-center">
+<button class="flex items-center gap-xs text-[18px] hover:scale-110 transition-transform">â¤ï¸</button>
+<button class="flex items-center gap-xs text-[18px] hover:scale-110 transition-transform">ðŸ˜‚</button>
+<button class="flex items-center gap-xs text-[18px] hover:scale-110 transition-transform">ðŸ˜®</button>
+<button class="flex items-center gap-xs text-[18px] hover:scale-110 transition-transform">ðŸ‘</button>
+<button class="flex items-center gap-xs text-[18px] hover:scale-110 transition-transform">ðŸ™</button>
+</div>
+</div>
+</article>
+<!-- Sponsored Ad -->
+<article class="bg-surface rounded-xl border-2 border-secondary overflow-hidden shadow-lg relative">
+<div class="absolute top-3 right-3 bg-secondary text-white text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-wider">
+                    Sponsored
+                </div>
+<div class="p-md flex flex-col gap-sm">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white">shopping_bag</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">FreshBaskets</h4>
+<span class="text-label-md text-secondary font-bold">Flat 20% OFF today</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Get fresh farm-to-table groceries delivered to Sunshine Apts in under 30 minutes. Use code SUNSHINE20.
+                    </p>
+<button class="w-full py-sm bg-secondary text-white rounded-lg font-bold text-label-md hover:bg-secondary/90 transition-colors">
+                        Shop Now
+                    </button>
+</div>
+</article>
+<!-- Post 3 -->
+<article class="bg-surface rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.06)] overflow-hidden">
+<div class="p-md flex gap-md">
+<img class="w-10 h-10 rounded-full object-cover shrink-0" data-alt="A portrait of Anish Kapoor, an elderly gentleman with a warm and wise expression. He is wearing a classic linen shirt. The background is a lush green park in Mumbai. The lighting is soft and golden, characteristic of a late afternoon. The overall feel is dependable, community-centric, and grounded." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0O2sSsWM5K7E2xwVBX3NEZVn4jGQeEvbxGujUdQJQ0sQX6EQiJwp-N9OZIiJWxcef14TGYcI4rP3gapL1MkW4y8St0ITL_ghgwwvOU0XpAUFWZVnyvwCpH0wMw-PZEhObJboU2sDzIlysC7BtXL1DTo5G8CsPoB-0BH01CncDvQxwVE6xzKaqysDpoTj1r-BYcSMSl3Xbts7qrcJa_LPKUHLAqUCbBUGJ3iISCNLr8mxwvQ2B-MMxGFgzSRltBh0DAeS0XkltYLrb"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-xs">
+<h3 class="font-bold text-on-surface">Anish Kapoor</h3>
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="text-label-md text-outline font-label-md">Mumbai â€º Bandra â€º Hill View â€º Sunshine</span>
+</div>
+</div>
+<div class="px-md pb-md">
+<p class="font-body-lg text-body-lg leading-[1.5] text-on-surface-variant">
+                        Found a set of keys near the main gate. Please contact me if you've lost them.
+                    </p>
+</div>
+<div class="flex items-center justify-between px-md py-sm border-t border-surface-container-high">
+<div class="flex items-center gap-md">
+<div class="flex -space-x-1">
+<span class="text-[18px]">ðŸ™</span>
+</div>
+<span class="text-label-sm text-outline">5 neighbors thanked</span>
+</div>
+<div class="flex gap-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px] cursor-pointer">favorite</span>
+<span class="material-symbols-outlined text-[20px] cursor-pointer">comment</span>
+<span class="material-symbols-outlined text-[20px] cursor-pointer">share</span>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface dark:bg-inverse-surface shadow-[0_-4px_12px_0_rgba(0,0,0,0.06)] rounded-t-xl px-base pb-safe h-20">
+<div class="flex justify-around items-center h-16">
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold transition-transform duration-300 active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-md font-label-md">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant transition-transform duration-300 active:scale-90">
+<span class="material-symbols-outlined">report_problem</span>
+<span class="text-label-md font-label-md">Issues</span>
+</button>
+<!-- Floating Action Button -->
+<button class="relative -top-6 w-14 h-14 bg-primary rounded-full shadow-lg flex items-center justify-center text-white transition-transform duration-300 active:scale-90 border-4 border-background">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant transition-transform duration-300 active:scale-90">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-label-md font-label-md">Directory</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant transition-transform duration-300 active:scale-90">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-md font-label-md">Profile</span>
+</button>
+</div>
+<!-- iPhone Home Indicator -->
+<div class="iphone-indicator mt-1"></div>
+</nav>
+<script>
+        // Micro-interactions for reactions
+        document.querySelectorAll('article button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.add('scale-150');
+                setTimeout(() => this.classList.remove('scale-150'), 200);
+            });
+        });
+
+        // Hide header on scroll down, show on scroll up
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            header.style.transition = 'transform 0.3s ease-in-out';
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body></html>
+
+
