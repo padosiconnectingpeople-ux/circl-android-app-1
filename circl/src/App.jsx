@@ -6,8 +6,6 @@ import useUIStore from '@store/uiStore';
 // Layouts
 import TopBar from '@components/navigation/TopBar';
 import BottomNav from '@components/navigation/BottomNav';
-import Sidebar from '@components/navigation/Sidebar';
-import RightSidebar from '@components/navigation/RightSidebar';
 import { OfflineBanner, Toast } from '@components/common/ErrorBoundary';
 
 // Pages
@@ -58,26 +56,13 @@ const AppShell = ({ children }) => {
       {!isOnline && <OfflineBanner />}
       <TopBar />
       
-      {/* Responsive Grid Layout */}
-      <div className="flex-1 max-w-7xl w-full mx-auto px-4 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-6">
-        {/* Left Sidebar */}
-        <div className="hidden md:block md:col-span-1 lg:col-span-3">
-          <Sidebar />
-        </div>
-
-        {/* Main Content */}
-        <main className="col-span-1 md:col-span-3 lg:col-span-6 bg-card border-x border-outline-variant/10 min-h-screen pb-24 shadow-sm">
+      <main className="flex-1 w-full max-w-md mx-auto px-4 pb-28">
+        <div className="bg-card border border-outline-variant/10 rounded-[28px] shadow-sm min-h-[calc(100vh-112px)] overflow-hidden">
           {children}
-        </main>
-
-        {/* Right Sidebar */}
-        <div className="hidden lg:block lg:col-span-3">
-          <RightSidebar />
         </div>
-      </div>
+      </main>
 
-      {/* Mobile Bottom Navigation */}
-      <div className="md:hidden">
+      <div className="fixed bottom-0 left-0 w-full md:hidden">
         <BottomNav />
       </div>
 
