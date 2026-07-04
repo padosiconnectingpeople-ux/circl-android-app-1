@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MessageSquare, BarChart2, ArrowLeft, Send } from 'lucide-react';
+import { Camera, Video, BarChart2, Calendar, AlertTriangle, ArrowLeft, Send } from 'lucide-react';
 import Button from '@components/common/Button';
 import useFeedStore from '@store/feedStore';
 import useAuthStore from '@store/authStore';
@@ -133,23 +133,18 @@ const CreatePostPage = () => {
 
         {/* Bottom Options bar */}
         <div className="flex items-center justify-between border-t border-outline-variant/10 pt-4">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <button
-              type="button"
               onClick={() => setPostType('text')}
-              className={`flex items-center gap-2 px-3 py-2 rounded-2xl border transition-colors ${postType === 'text' ? 'border-primary bg-primary/10 text-primary' : 'border-outline-variant/50 text-on-surface hover:border-primary hover:bg-surface-container'}`}
+              className={`p-2.5 rounded-xl transition-colors ${postType === 'text' ? 'bg-primary/10 text-primary' : 'text-text-muted hover:bg-surface-container'}`}
             >
-              <MessageSquare className="w-5 h-5" />
-              <span className="text-label-md font-semibold">{t('text')}</span>
+              <Camera className="w-5 h-5" />
             </button>
-
             <button
-              type="button"
               onClick={() => setPostType('poll')}
-              className={`flex items-center gap-2 px-3 py-2 rounded-2xl border transition-colors ${postType === 'poll' ? 'border-primary bg-primary/10 text-primary' : 'border-outline-variant/50 text-on-surface hover:border-primary hover:bg-surface-container'}`}
+              className={`p-2.5 rounded-xl transition-colors ${postType === 'poll' ? 'bg-primary/10 text-primary' : 'text-text-muted hover:bg-surface-container'}`}
             >
               <BarChart2 className="w-5 h-5" />
-              <span className="text-label-md font-semibold">{t('poll')}</span>
             </button>
           </div>
 
